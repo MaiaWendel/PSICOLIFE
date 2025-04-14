@@ -1,80 +1,145 @@
-/* styles.css */
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
 }
 
-body.dark-theme {
-    background-color: #333;
-    color: #fff;
-}
-
+/* Cabeçalho */
 header {
+    background-color: #008CBA;
+    color: white;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-#profile-button {
-    background: none;
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Botões de perfil e tema */
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+#theme-toggle, #profile-button {
+    background-color: white;
+    color: #008CBA;
     border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
     cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover, #profile-button:hover {
+    background-color: #0077A2;
+    color: white;
 }
 
 #profile-button img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
-}
-
+/* Seções */
 section {
-    display: none;
-    margin-bottom: 20px;
+    padding: 100px 20px;
+    text-align: center;
 }
 
-section.active {
-    display: block;
+#sobre {
+    background-color: #f0f0f0;
 }
 
-h2 {
-    color: inherit;
+#contato {
+    background-color: #d9d9d9;
 }
 
-#theme-toggle {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #333;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-body.dark-theme #theme-toggle {
+/* Rodapé */
+footer {
     background-color: #333;
-    color: #fff;
-    border: 1px solid #fff;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+/* Design Responsivo */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #theme-toggle, #profile-button {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+.button-container {
+    flex-direction: column;
+    bottom: 10px;
+    right: 10px;
+}
+/* Tema escuro */
+body.dark-theme {
+    background-color: #222;
+    color: #f4f4f4;
+}
+
+body.dark-theme header {
+    background-color: #444;
+}
+
+body.dark-theme footer {
+    background-color: #111;
+}
+
+/* Animações para seções */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

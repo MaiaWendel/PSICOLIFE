@@ -3,45 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/linding-page.css">
-    <title>Meu Site</title>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="../css/linding-page.css"> <!-- Link correto para o CSS -->
 </head>
 <body>
     <header>
-        <h1>PsicoLife</h1>
+        <h1>Bem-vindo à PsicoLife</h1>
         <nav>
-            <ul>
-                <li><a href="#sobre" class="menu-link" data-target="sobre">Sobre</a></li>
-                <li><a href="#escape" class="menu-link" data-target="escape">Guia de Escape</a></li>
-                <li><a href="#contato" class="menu-link" data-target="contato">Contato</a></li>
-                <li><a href="#diario" class="menu-link" data-target="diario">Diário</a></li>
-                <li><a href="signin.html" class="menu-link">Quiz</a></li> <!-- Novo link para a página de login -->
-            </ul>
+            <a href="./quiz.html">Quiz</a> <!-- Caminho correto para quiz.html -->
+            <a href="./guia-escape.html">Guia de Escape</a> <!-- Caminho correto para guia-escape.html -->
         </nav>
         <button id="theme-toggle">Alternar Tema</button>
         <button id="profile-button">
-            <img src="../images/perfil.png" alt="Perfil">
+            <img src="../images/perfil.png" alt="Perfil"> <!-- Caminho ajustado para a imagem -->
         </button>
     </header>
     <main>
-        <section id="sobre" class="content-section">
-            <h2></h2>
-            <p></p>              
-            </section>
-        <section id="escape" class="content-section">
-            <h2>Guia de Escape</h2>
-            <p>Dicas e truques para se divertir.</p>
+        <section id="sobre">
+            <h2>Sobre</h2>
+            <p>PsicoLife é dedicado a proporcionar bem-estar emocional e psicológico aos nossos usuários.</p>
         </section>
-        <section id="contato" class="content-section">
-            <h2>Guia de Contato</h2>
-            <p>Informações para entrar em contato.</p>
-        </section>
-
-        <section id="diario" class="content-section">
-            <h2>Diário</h2>
-            <p>Entradas diárias do usuário.</p>
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Fale conosco para saber mais: <br> Email: contato@psicolife.com.br <br> Telefone: (11) 99999-9999</p>
         </section>
     </main>
-    <script src="../js/linding-page.js"></script>
+    <footer>
+        <p>&copy; 2025 PsicoLife. <a href="../html/termos-e-condicoes.html" target="_blank">Todos os direitos reservados</a>.</p>
+    </footer>    
+    <script src="../js/linding-page.js"></script> <!-- Link correto para o JavaScript -->
 </body>
 </html>

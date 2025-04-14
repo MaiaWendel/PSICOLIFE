@@ -1,0 +1,68 @@
+/* terms.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #0d009c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    margin: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.scroll-box {
+    max-height: 300px;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.accept-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    background-color: #0d009c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+button:hover:enabled {
+    background-color: #4038a0;
+}
+
+footer {
+    background-color: #0d009c;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}

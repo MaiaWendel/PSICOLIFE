@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Psicologia</title>
+    <link rel="stylesheet" href="../css/quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para o gráfico -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Quiz de Psicologia</h1>
+            <p>Responda cada pergunta e clique em "Próxima" até finalizar o quiz.</p>
+        </header>
+        
+        <div id="quiz">
+            <div id="questionContainer">
+                <p id="questionText"></p>
+                <div id="answerOptions">
+                    <button class="answer" data-value="5">Sim, sempre</button>
+                    <button class="answer" data-value="3">Às vezes</button>
+                    <button class="answer" data-value="2">Quase nunca</button>
+                    <button class="answer" data-value="1">Nunca</button>
+                </div>
+                <button id="nextButton" class="hidden">Próxima</button>
+            </div>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Resultado</h2>
+            <p id="diagnosis"></p>
+            <canvas id="chartResult" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script src="../js/quiz.js"></script>
+</body>
+</html>

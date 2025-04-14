@@ -5,44 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link 
     rel="stylesheet" 
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-    <link rel="stylesheet" href="../css/signin.css">
-    <title>Sign-in</title>
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/signin.css"> <!-- Link para o CSS atualizado -->
+    <title>Entrar - PsicoLife</title>
 </head>
-    <body>
-    <div class='container'>
-        <div class='card'>
-          <h1> Entrar </h1>
-          
-          <div id='msgError'></div>
-          
-          <div class='label-float'>
-            <input type='text' id='usuario' paceholder='' required>
-            <label id='userLabel' for='usuario'>Usuario</label>
-          </div>
-          
-          <div class='label-float'>
-            <input type='password' id='senha' paceholder='' required>
-            <label id='senhaLabel' for='senha'>Senha</label>
-            <i class="fa fa-eye" aria-hidden="true"></i>
-          </div>
-          
-          <div class='justify-center'>
-            <button onclick='entrar()'>Entrar</button>
-          </div>
-          
-          <div class='justify-center'>
-            <hr>
-          </div>
-          
-          <p> Não tem uma conta?
-            <a href="../html/signup.html"> Cadastre-se </a>
-          </p>
-          
-        </div>
-        </div>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Entrar</h1>
 
-        <script src="../js/signin.js"></script>
-    </body>
+            <div id="msgError"></div>
+
+            <div class="label-float">
+                <input type="text" id="usuario" placeholder="" required>
+                <label id="userLabel" for="usuario">Usuário</label>
+            </div>
+
+            <div class="label-float">
+                <input type="password" id="senha" placeholder="" required>
+                <label id="senhaLabel" for="senha">Senha</label>
+                <i class="fa fa-eye" id="togglePassword" aria-hidden="true"></i>
+            </div>
+
+            <div class="justify-center">
+                <button class="btn-primary" onclick="entrar()">Entrar</button>
+            </div>
+
+            <div class="divider">
+                <hr>
+            </div>
+
+            <p>Não tem uma conta? 
+                <a href="../html/signup.html" class="link-highlight">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="justify-center">
+            <a href="../html/linding-page.html" class="btn-secondary">Voltar à Página Inicial</a>
+        </div>
+    </footer>
+
+    <script src="../js/signin.js"></script> <!-- Link para o JavaScript -->
+</body>
 </html>
