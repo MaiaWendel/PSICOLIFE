@@ -1,4 +1,3 @@
-/* signup.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
@@ -19,11 +18,11 @@ body {
 
 .container {
   width: 100%;
-  max-width: 400px;
+  max-width: 320px;
   background: rgba(255, 255, 255, 0.9);
-  padding: 30px;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card {
@@ -33,62 +32,54 @@ body {
 }
 
 h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin-bottom: 15px;
+  font-size: 20px;
   color: #0d009c;
 }
 
 .label-float {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   position: relative;
 }
 
 .label-float input,
 .label-float select {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border: none;
   border-bottom: 2px solid #0d009c;
   background: transparent;
-  font-size: 16px;
+  font-size: 14px;
   transition: border-color 0.3s ease;
 }
 
-.label-float select {
-  cursor: pointer;
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
-.label-float input:focus,
-.label-float select:focus {
-  border-bottom-color: #4038a0;
+.radio-group input {
+  margin-right: 5px;
 }
 
-.label-float label {
-  position: absolute;
-  left: 10px;
-  top: 10px;
+.radio-group label {
+  font-size: 14px;
   color: #0d009c;
-  font-size: 16px;
-  transition: top 0.3s, font-size 0.3s, color 0.3s;
-}
-
-.label-float input:not(:placeholder-shown) + label,
-.label-float input:focus + label,
-.label-float select:focus + label {
-  top: -10px;
-  font-size: 12px;
-  color: #4038a0;
+  display: flex;
+  align-items: center;
 }
 
 button {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border: none;
   border-radius: 5px;
   background-color: #0d009c;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -96,40 +87,4 @@ button {
 
 button:hover {
   background-color: #4038a0;
-}
-
-.message {
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  display: none;
-}
-
-.message.error {
-  background-color: #f8d7da;
-  color: #842029;
-}
-
-.message.success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.toggle-password {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #0d009c;
-  font-size: 18px;
-}
-
-.help-text {
-  font-size: 12px;
-  color: #f00;
-  margin-top: 5px;
-  display: none;
 }

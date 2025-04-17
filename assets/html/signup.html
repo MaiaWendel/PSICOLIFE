@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/signup.css">
     <title>Cadastrar Usuário</title>
 </head>
@@ -16,36 +15,49 @@
 
             <form id="signupForm" novalidate>
                 <div class="label-float">
-                    <input type="text" id="nome" placeholder=" " required aria-describedby="nomeHelp">
-                    <label for="nome">Nome</label>
-                    <small id="nomeHelp" class="help-text"></small>
+                    <input type="text" id="nomeCompleto" placeholder=" " required>
+                    <label for="nomeCompleto">Nome Completo</label>
                 </div>
                 <div class="label-float">
-                    <input type="text" id="usuario" placeholder=" " required aria-describedby="usuarioHelp">
-                    <label for="usuario">Usuário</label>
-                    <small id="usuarioHelp" class="help-text"></small>
+                    <input type="text" id="usuario" placeholder=" " required>
+                    <label for="usuario">Nome de Usuário</label>
                 </div>
                 <div class="label-float">
-                    <input type="password" id="senha" placeholder=" " required aria-describedby="senhaHelp">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="label-float">
+                    <input type="tel" id="telefone" placeholder=" " required maxlength="15">
+                    <label for="telefone">Número de Telefone</label>
+                </div>
+                
+                <div class="label-float">
+                    <input type="password" id="senha" placeholder=" " required>
                     <label for="senha">Senha</label>
-                    <i id="togglePassword" class="fa fa-eye toggle-password" aria-label="Mostrar/Esconder senha"></i>
+                    <i id="togglePassword" class="fa fa-eye toggle-password"></i>
                 </div>
                 <div class="label-float">
-                    <input type="password" id="confirmSenha" placeholder=" " required aria-describedby="confirmSenhaHelp">
+                    <input type="password" id="confirmSenha" placeholder=" " required>
                     <label for="confirmSenha">Confirmar Senha</label>
-                    <i id="toggleConfirmPassword" class="fa fa-eye toggle-password" aria-label="Mostrar/Esconder confirmação de senha"></i>
+                    <i id="toggleConfirmPassword" class="fa fa-eye toggle-password"></i>
+                </div>
+                <div class="radio-group">
+                    <label>Sexo:</label>
+                    <input type="radio" id="masculino" name="sexo" value="masculino">
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="feminino" name="sexo" value="feminino">
+                    <label for="feminino">Feminino</label>
                 </div>
                 <div class="label-float">
                     <select id="psicologo" required>
-                        <option value="" disabled selected></option>
+                        <option value="" disabled selected>Escolha seu psicólogo</option>
                         <option value="psico1">Psicólogo 1</option>
                         <option value="psico2">Psicólogo 2</option>
                         <option value="psico3">Psicólogo 3</option>
                     </select>
-                    <label for="psicologo">Escolha seu psicólogo</label>
                 </div>
                 <div class="justify-center">
-                    <button type="submit" aria-label="Cadastrar">Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
             </form>
         </div>

@@ -2,6 +2,7 @@
 const themeToggle = document.getElementById('theme-toggle');
 const navLinks = document.querySelectorAll('nav a');
 const profileButton = document.getElementById('profile-button');
+const inicioButton = document.querySelector('nav a[href="./index.html"]'); // Botão "Início"
 
 // Função para alternar entre temas claro e escuro
 function toggleTheme() {
@@ -32,10 +33,7 @@ profileButton.addEventListener('click', () => {
 
 // Função para exibir uma mensagem dinâmica de boas-vindas
 function showWelcomeMessage() {
-    // Obtendo a hora atual
     const currentHour = new Date().getHours();
-
-    // Mensagem de boas-vindas dinâmica baseada na hora
     const messages = {
         morning: 'Bom dia! Bem-vindo à PsicoLife.',
         afternoon: 'Boa tarde! Que bom tê-lo aqui.',
@@ -43,7 +41,6 @@ function showWelcomeMessage() {
         default: 'Bem-vindo!'
     };
 
-    // Determinando a mensagem correta
     let welcomeMessage = messages.default;
     if (currentHour >= 5 && currentHour < 12) {
         welcomeMessage = messages.morning;
@@ -53,7 +50,6 @@ function showWelcomeMessage() {
         welcomeMessage = messages.evening;
     }
 
-    // Atualizando o texto do cabeçalho dinamicamente
     const headerElement = document.querySelector('header h1');
     if (headerElement) {
         headerElement.innerText = welcomeMessage;
@@ -61,7 +57,6 @@ function showWelcomeMessage() {
         console.warn('Elemento de cabeçalho não encontrado.');
     }
 }
-
 
 // Chamar a função de boas-vindas ao carregar a página
 window.addEventListener('DOMContentLoaded', showWelcomeMessage);
@@ -82,3 +77,9 @@ function animateSectionsOnScroll() {
 
 // Adicionar evento de rolagem para animações
 window.addEventListener('scroll', animateSectionsOnScroll);
+
+// Adicionar funcionalidade para o botão "Início" sempre voltar à Landing Page
+inicioButton.addEventListener("click", function(event) {
+    event.preventDefault(); // Impede a ação padrão do link
+    window.location.href = "./index.html"; // Redireciona para a Landing Page
+});

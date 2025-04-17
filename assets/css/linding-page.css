@@ -118,19 +118,34 @@ footer {
     bottom: 10px;
     right: 10px;
 }
-/* Tema escuro */
+/* Tema escuro aprimorado */
 body.dark-theme {
-    background-color: #222;
-    color: #f4f4f4;
+    background-color: #111; /* Preto mais intenso */
+    color: #e0e0e0; /* Texto mais claro para contraste */
 }
 
 body.dark-theme header {
-    background-color: #444;
+    background-color: #222; /* Fundo escuro no cabeçalho */
+}
+
+body.dark-theme nav a {
+    color: #ffffff; /* Links em branco */
 }
 
 body.dark-theme footer {
-    background-color: #111;
+    background-color: #000; /* Rodapé ainda mais escuro */
+    color: #c0c0c0; /* Mantendo contraste adequado para leitura */
 }
+
+body.dark-theme #theme-toggle {
+    background-color: #333; /* Botão escuro */
+    color: #ffffff; /* Texto claro */
+}
+
+body.dark-theme #theme-toggle:hover {
+    background-color: #555; /* Pequeno destaque no hover */
+}
+
 
 /* Animações para seções */
 section {
@@ -142,4 +157,28 @@ section {
 section.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Compactar mensagens de boas-vindas */
+.welcome-message {
+    font-size: 14px; /* Fonte menor */
+    text-align: center;
+    margin-bottom: 10px; /* Menos espaçamento */
+}
+
+nav a {
+    font-size: 14.5px; /* Reduzindo tamanho da fonte */
+    padding: 5px 8px; /* Menores margens internas */
+}
+
+/* Ajustar botão de alteração de tema */
+#theme-toggle {
+    font-size: 13px; /* Fonte menor */
+    padding: 6px 10px; /* Ajuste de tamanho */
+}
+
+/* Compactar rodapé */
+footer {
+    font-size: 12px; /* Diminuir tamanho da fonte do rodapé */
+    padding: 8px 15px;
 }
