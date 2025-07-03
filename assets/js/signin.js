@@ -1,52 +1,99 @@
-// signin.js
 document.addEventListener('DOMContentLoaded', () => {
-  // Alternar visibilidade da senha
-  const togglePassword = document.querySelector('#togglePassword');
-  const passwordInput = document.querySelector('#senha');
+    // Alternar visibilidade da senha
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordInput = document.querySelector('#senha');
 
-  togglePassword.addEventListener('click', () => {
-      // Alternar tipo de input entre 'password' e 'text'
-      const type = passwordInput.type === 'password' ? 'text' : 'password';
-      passwordInput.type = type;
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', () => {
+            // Alternar tipo de input entre 'password' e 'text'
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
 
-      // Alternar ícone entre olho aberto e fechado
-      togglePassword.classList.toggle('fa-eye-slash');
-  });
+            // Alternar ícone entre olho aberto e fechado
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    }
 
-  // Validação do botão "Entrar"
-  const btnEntrar = document.querySelector('.btn-primary');
-  btnEntrar.addEventListener('click', (e) => {
-      e.preventDefault();
-      validarLogin();
-  });
+    // Validação do formulário de login
+    const loginForm = document.querySelector('#loginForm');
+    const msgError = document.querySelector('#msgError');
+    const msgSuccess = document.querySelector('#msgSuccess');
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Limpar mensagens anteriores
+            if (msgError) msgError.style.display = 'none';
+            if (msgSuccess) msgSuccess.style.display = 'none';
+            
+            const email = document.querySelector('#email').value.trim();
+            const senha = document.querySelector('#senha').value.trim();
+            
+            if (!email || !senha) {
+                showError('Preencha todos os campos');
+                return;
+            }
+            
+            try {
+                // Usar a API para fazer login
+                if (window.API && window.API.auth) {
+                    const usuario = await window.API.auth.login(email, senha);
+                    showSuccess('Login realizado com sucesso! Redirecionando...');
+                    
+                    setTimeout(() => {
+                        window.location.href = './dashboard.html';
+                    }, 1500);
+                } else {
+                    // Fallback para o sistema antigo se a API não estiver disponível
+                    validarLoginLocal(email, senha);
+                }
+            } catch (error) {
+                showError(error.message || 'Erro ao fazer login. Tente novamente.');
+            }
+        });
+    }
+    
+    function showError(message) {
+        if (msgError) {
+            msgError.textContent = message;
+            msgError.style.display = 'block';
+        }
+    }
+    
+    function showSuccess(message) {
+        if (msgSuccess) {
+            msgSuccess.textContent = message;
+            msgSuccess.style.display = 'block';
+        }
+    }
+    
+    // Função de fallback para login local
+    function validarLoginLocal(email, senha) {
+        const listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+        
+        const userValid = listaUser.find(user => 
+            (user.email === email || user.usuario === email) && user.senha === senha
+        );
+        
+        if (userValid) {
+            const userLoggedObj = {
+                nome: userValid.nome || userValid.nomeCompleto,
+                usuario: userValid.usuario,
+                email: userValid.email,
+                psicologo: userValid.psicologo
+            };
+            
+            localStorage.setItem('userLogged', JSON.stringify(userLoggedObj));
+            localStorage.setItem('userLoggedIn', 'true');
+            
+            showSuccess('Login realizado com sucesso! Redirecionando...');
+            
+            setTimeout(() => {
+                window.location.href = './dashboard.html';
+            }, 1500);
+        } else {
+            showError('Email ou senha incorretos. Tente novamente!');
+        }
+    }
 });
-
-// Função para validar login
-function validarLogin() {
-  const usuarioInput = document.querySelector('#usuario').value.trim();
-  const senhaInput = document.querySelector('#senha').value.trim();
-  const msgError = document.querySelector('#msgError');
-
-  // Recuperar lista de usuários do localStorage
-  const listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
-
-  // Verificar se o usuário e senha existem na lista
-  const userValid = listaUser.find(user => 
-      user.usuario === usuarioInput && user.senha === senhaInput
-  );
-
-  if (userValid) {
-      // Login bem-sucedido
-      msgError.style.display = 'none';
-      alert(`Bem-vindo, ${userValid.nome}!`);
-      window.location.href = '../html/linding-page.html'; // Redireciona para a página inicial
-  } else {
-      // Falha no login
-      msgError.style.display = 'block';
-      msgError.textContent = 'Usuário ou senha incorretos. Tente novamente!';
-      msgError.style.color = '#842029';
-      msgError.style.backgroundColor = '#f8d7da';
-      msgError.style.padding = '10px';
-      msgError.style.borderRadius = '5px';
-  }
-}

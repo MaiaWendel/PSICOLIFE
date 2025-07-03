@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/perfil.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>PsicoLife</h1>
+                <p class="tagline">Bem-estar emocional ao seu alcance</p>
+            </div>
+            
+            <nav>
+                <a href="./dashboard.html"><i class="fas fa-home"></i> Início</a>
+                <a href="./diario.html"><i class="fas fa-book"></i> Diário</a>
+                <a href="./quiz.html"><i class="fas fa-question-circle"></i> Quiz</a>
+                <a href="./guia-escape.html"><i class="fas fa-compass"></i> Guia de Escape</a>
+            </nav>
+            
+            <div class="header-controls">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <button id="user-button" aria-label="Menu do usuário">
+                        <img src="../images/perfil.png" alt="Perfil">
+                        <span id="user-name">Usuário</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="./perfil.html" class="active"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="./configuracoes.html"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="profile-header">
+                <h2>Meu Perfil</h2>
+                <p>Visualize e edite suas informações pessoais</p>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <div class="profile-picture">
+                        <img src="../images/perfil.png" alt="Foto de perfil" id="profile-image">
+                        <div class="change-photo">
+                            <label for="photo-upload" class="btn-change-photo">
+                                <i class="fas fa-camera"></i> Alterar foto
+                            </label>
+                            <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="profile-menu">
+                        <a href="#informacoes-pessoais" class="active">Informações Pessoais</a>
+                        <a href="#historico">Histórico de Atividades</a>
+                        <a href="#consultas">Minhas Consultas</a>
+                        <a href="#resultados">Resultados de Quiz</a>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div id="informacoes-pessoais" class="profile-section active">
+                        <h3>Informações Pessoais</h3>
+                        
+                        <form id="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nome">Nome Completo</label>
+                                    <input type="text" id="nome" name="nome" readonly>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="usuario">Nome de Usuário</label>
+                                    <input type="text" id="usuario" name="usuario" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" readonly>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="tel" id="telefone" name="telefone" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="sexo">Gênero</label>
+                                    <input type="text" id="sexo" name="sexo" readonly>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="psicologo">Psicólogo</label>
+                                    <input type="text" id="psicologo" name="psicologo" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="data-cadastro">Data de Cadastro</label>
+                                    <input type="text" id="data-cadastro" name="data-cadastro" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="btn-edit" class="btn-primary">
+                                    <i class="fas fa-edit"></i> Editar Informações
+                                </button>
+                                <button type="submit" id="btn-save" class="btn-success" style="display: none;">
+                                    <i class="fas fa-save"></i> Salvar Alterações
+                                </button>
+                                <button type="button" id="btn-cancel" class="btn-secondary" style="display: none;">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="historico" class="profile-section">
+                        <h3>Histórico de Atividades</h3>
+                        
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Diário Emocional</h4>
+                                    <p>Você adicionou uma nova entrada no diário</p>
+                                    <span class="activity-date">Hoje, 14:30</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Quiz de Autoconhecimento</h4>
+                                    <p>Você completou o quiz "Ansiedade e Estresse"</p>
+                                    <span class="activity-date">Ontem, 10:15</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Guia de Escape</h4>
+                                    <p>Você acessou a técnica "Respiração 4-7-8"</p>
+                                    <span class="activity-date">15/05/2025, 19:45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="consultas" class="profile-section">
+                        <h3>Minhas Consultas</h3>
+                        
+                        <div class="appointments">
+                            <div class="appointment-item">
+                                <div class="appointment-date">
+                                    <span class="day">25</span>
+                                    <span class="month">Mai</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Consulta com Dra. Ana Silva</h4>
+                                    <p><i class="fas fa-clock"></i> 14:00 - 15:00</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Presencial</p>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn-secondary">Reagendar</button>
+                                    <button class="btn-danger">Cancelar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="appointment-item">
+                                <div class="appointment-date">
+                                    <span class="day">10</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Consulta com Dra. Ana Silva</h4>
+                                    <p><i class="fas fa-clock"></i> 14:00 - 15:00</p>
+                                    <p><i class="fas fa-video"></i> Online</p>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn-secondary">Reagendar</button>
+                                    <button class="btn-danger">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary btn-new-appointment">
+                            <i class="fas fa-plus"></i> Agendar Nova Consulta
+                        </button>
+                    </div>
+                    
+                    <div id="resultados" class="profile-section">
+                        <h3>Resultados de Quiz</h3>
+                        
+                        <div class="quiz-results">
+                            <div class="quiz-result-item">
+                                <h4>Ansiedade e Estresse</h4>
+                                <div class="result-date">Realizado em: 18/05/2025</div>
+                                <div class="result-score">
+                                    <div class="score-label">Nível de Ansiedade:</div>
+                                    <div class="score-bar">
+                                        <div class="score-fill" style="width: 65%;"></div>
+                                    </div>
+                                    <div class="score-value">Moderado (65%)</div>
+                                </div>
+                                <p class="result-summary">
+                                    Seus resultados indicam um nível moderado de ansiedade. Recomendamos praticar técnicas de respiração e mindfulness diariamente.
+                                </p>
+                                <button class="btn-secondary">Ver Detalhes</button>
+                            </div>
+                            
+                            <div class="quiz-result-item">
+                                <h4>Autoconhecimento Emocional</h4>
+                                <div class="result-date">Realizado em: 10/05/2025</div>
+                                <div class="result-score">
+                                    <div class="score-label">Inteligência Emocional:</div>
+                                    <div class="score-bar">
+                                        <div class="score-fill" style="width: 78%;"></div>
+                                    </div>
+                                    <div class="score-value">Bom (78%)</div>
+                                </div>
+                                <p class="result-summary">
+                                    Você demonstra boa capacidade de reconhecer e gerenciar suas emoções. Continue praticando a auto-observação para melhorar ainda mais.
+                                </p>
+                                <button class="btn-secondary">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsicoLife | Andreia Monteiro Espaço Saúde e Fisioterapia Integrada. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/perfil.js"></script>
+</body>
+</html>

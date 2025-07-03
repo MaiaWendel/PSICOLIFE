@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo | PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>PsicoLife</h1>
+                </div>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-info">
+                <img src="../images/perfil.png" alt="Foto de Perfil" class="user-avatar">
+                <div class="user-details">
+                    <h3 id="user-name">Nome do Usuário</h3>
+                    <span id="user-role" class="user-role developer">Desenvolvedor</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#usuarios">
+                            <i class="fas fa-users"></i>
+                            <span>Usuários</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pacientes">
+                            <i class="fas fa-user-injured"></i>
+                            <span>Pacientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#psicologos">
+                            <i class="fas fa-user-md"></i>
+                            <span>Psicólogos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#quiz">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Quiz</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#diarios">
+                            <i class="fas fa-book"></i>
+                            <span>Diários</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#configuracoes">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#logs">
+                            <i class="fas fa-history"></i>
+                            <span>Logs do Sistema</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h2>Dashboard</h2>
+                    <nav class="breadcrumb">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Dashboard</span>
+                    </nav>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Pesquisar...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                        
+                        <button class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content-body">
+                <!-- Stats Cards -->
+                <section class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Usuários</h3>
+                            <p class="stat-value">1,254</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% desde o mês passado
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon patients">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Pacientes</h3>
+                            <p class="stat-value">845</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 8% desde o mês passado
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon psychologists">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Psicólogos</h3>
+                            <p class="stat-value">42</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 5% desde o mês passado
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon quizzes">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Quiz Realizados</h3>
+                            <p class="stat-value">3,782</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 15% desde o mês passado
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Charts Section -->
+                <section class="charts-section">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Atividade de Usuários</h3>
+                            <div class="chart-actions">
+                                <button class="chart-period active">Dia</button>
+                                <button class="chart-period">Semana</button>
+                                <button class="chart-period">Mês</button>
+                                <button class="chart-period">Ano</button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="usersChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Distribuição de Quiz</h3>
+                            <div class="chart-actions">
+                                <button class="chart-filter">
+                                    <i class="fas fa-filter"></i>
+                                    Filtrar
+                                </button>
+                                <button class="chart-download">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="quizChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Recent Activities -->
+                <section class="recent-activities">
+                    <div class="section-header">
+                        <h3>Atividades Recentes</h3>
+                        <button class="view-all-btn">Ver Todas</button>
+                    </div>
+                    
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-icon login">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Ana Silva</strong> fez login no sistema</p>
+                                <p class="activity-time">Há 5 minutos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon quiz">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>João Pereira</strong> completou o quiz de ansiedade</p>
+                                <p class="activity-time">Há 15 minutos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon diary">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Maria Santos</strong> adicionou uma nova entrada no diário</p>
+                                <p class="activity-time">Há 32 minutos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon user">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Dr. Carlos Mendes</strong> adicionou um novo paciente</p>
+                                <p class="activity-time">Há 1 hora</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon settings">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Sistema</strong> realizou backup automático</p>
+                                <p class="activity-time">Há 3 horas</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- System Status -->
+                <section class="system-status">
+                    <div class="section-header">
+                        <h3>Status do Sistema</h3>
+                        <span class="status-indicator online">Online</span>
+                    </div>
+                    
+                    <div class="status-cards">
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4>Uso de CPU</h4>
+                                <span class="status-value">28%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 28%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4>Uso de Memória</h4>
+                                <span class="status-value">45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4>Uso de Disco</h4>
+                                <span class="status-value">62%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress warning" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="status-header">
+                                <h4>Tempo de Atividade</h4>
+                                <span class="status-value">15d 8h 42m</span>
+                            </div>
+                            <div class="uptime-info">
+                                <p>Último reinício: 15/04/2025 às 08:15</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Developer Tools Section -->
+                <section class="dev-tools-section">
+                    <div class="section-header">
+                        <h3>Ferramentas de Desenvolvedor</h3>
+                        <button class="refresh-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            Atualizar
+                        </button>
+                    </div>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h4>Rastreador de Bugs</h4>
+                            <p>Gerencie e corrija bugs reportados</p>
+                            <div class="tool-stats">
+                                <span class="stat">
+                                    <i class="fas fa-exclamation-circle critical"></i>
+                                    3 críticos
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-exclamation-triangle warning"></i>
+                                    7 pendentes
+                                </span>
+                            </div>
+                            <button class="tool-btn">Acessar</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Repositório de Código</h4>
+                            <p>Acesse o repositório Git do projeto</p>
+                            <div class="tool-stats">
+                                <span class="stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    12 branches
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-code-commit"></i>
+                                    156 commits
+                                </span>
+                            </div>
+                            <button class="tool-btn">Acessar</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>Gerenciador de Banco de Dados</h4>
+                            <p>Administre e monitore o banco de dados</p>
+                            <div class="tool-stats">
+                                <span class="stat">
+                                    <i class="fas fa-table"></i>
+                                    24 tabelas
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-server"></i>
+                                    2 servidores
+                                </span>
+                            </div>
+                            <button class="tool-btn">Acessar</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-code"></i>
+                            </div>
+                            <h4>Editor de Código</h4>
+                            <p>Edite arquivos do sistema diretamente</p>
+                            <div class="tool-stats">
+                                <span class="stat">
+                                    <i class="fas fa-file"></i>
+                                    358 arquivos
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-folder"></i>
+                                    42 diretórios
+                                </span>
+                            </div>
+                            <button class="tool-btn">Acessar</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

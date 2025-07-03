@@ -1,81 +1,135 @@
-document.querySelector("#telefone").addEventListener("input", function() {
-    let inputValue = this.value.replace(/\D/g, ""); // Remove caracteres não numéricos
-
-    if (inputValue.length > 11) {
-        inputValue = inputValue.slice(0, 11); // Limita a 11 dígitos
-    }
-
-    // Aplica a máscara (XX) XXXXX-XXXX automaticamente
-    if (inputValue.length >= 3) {
-        inputValue = `(${inputValue.slice(0,2)}) ${inputValue.slice(2,7)}-${inputValue.slice(7,11)}`;
-    }
-
-    this.value = inputValue;
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const togglePasswordVisibility = (toggleButtonId, inputId) => {
-        const toggleButton = document.querySelector(`#${toggleButtonId}`);
-        const inputField = document.querySelector(`#${inputId}`);
-
-        toggleButton.addEventListener('click', () => {
-            const type = inputField.type === 'password' ? 'text' : 'password';
-            inputField.type = type;
-            toggleButton.classList.toggle('fa-eye-slash');
-        });
-    };
-
-    togglePasswordVisibility('togglePassword', 'senha');
-    togglePasswordVisibility('toggleConfirmPassword', 'confirmSenha');
-
-    const form = document.querySelector('#signupForm');
-    const msgError = document.querySelector('#msgError');
-    const msgSuccess = document.querySelector('#msgSuccess');
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        if (validateForm()) {
-            saveUserData();
-            displayMessage(msgSuccess, 'Usuário cadastrado com sucesso!', true);
-            setTimeout(() => {
-                window.location.href = '../html/signin.html';
-            }, 2000);
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('signupForm');
+    const msgError = document.getElementById('msgError');
+    const msgSuccess = document.getElementById('msgSuccess');
+    
+    // Configurar visualização de senha
+    const togglePassword = document.getElementById('togglePassword');
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const senhaInput = document.getElementById('senha');
+    const confirmSenhaInput = document.getElementById('confirmSenha');
+    
+    togglePassword.addEventListener('click', function() {
+        togglePasswordVisibility(senhaInput, this);
+    });
+    
+    toggleConfirmPassword.addEventListener('click', function() {
+        togglePasswordVisibility(confirmSenhaInput, this);
+    });
+    
+    function togglePasswordVisibility(input, icon) {
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
         } else {
-            displayMessage(msgError, 'Preencha todos os campos corretamente!', false);
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+    
+    // Máscara para telefone
+    const telefoneInput = document.getElementById('telefone');
+    telefoneInput.addEventListener('input', function() {
+        let value = this.value.replace(/\D/g, '');
+        if (value.length > 0) {
+            value = '(' + value;
+            if (value.length > 3) {
+                value = value.substring(0, 3) + ') ' + value.substring(3);
+            }
+            if (value.length > 10) {
+                value = value.substring(0, 10) + '-' + value.substring(10, 14);
+            }
+        }
+        this.value = value;
+    });
+    
+    // Envio do formulário
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Limpar mensagens anteriores
+        msgError.style.display = 'none';
+        msgSuccess.style.display = 'none';
+        
+        // Validar formulário
+        const nomeCompleto = document.getElementById('nomeCompleto').value;
+        const usuario = document.getElementById('usuario').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+        const senha = document.getElementById('senha').value;
+        const confirmSenha = document.getElementById('confirmSenha').value;
+        const generoSelecionado = document.querySelector('input[name="sexo"]:checked');
+        const psicologo = document.getElementById('psicologo').value;
+        const termos = document.getElementById('termos').checked;
+        
+        // Validações
+        if (!nomeCompleto || !usuario || !email || !telefone || !senha || !confirmSenha) {
+            showError('Preencha todos os campos obrigatórios');
+            return;
+        }
+        
+        if (!generoSelecionado) {
+            showError('Selecione um gênero');
+            return;
+        }
+        
+        if (!psicologo) {
+            showError('Selecione um psicólogo');
+            return;
+        }
+        
+        if (!termos) {
+            showError('Você precisa aceitar os termos e condições');
+            return;
+        }
+        
+        if (senha !== confirmSenha) {
+            showError('As senhas não coincidem');
+            return;
+        }
+        
+        if (senha.length < 6) {
+            showError('A senha deve ter pelo menos 6 caracteres');
+            return;
+        }
+        
+        // Preparar dados para envio
+        const userData = {
+            nome: nomeCompleto,
+            usuario: usuario,
+            email: email,
+            telefone: telefone,
+            senha: senha,
+            genero: generoSelecionado.value,
+            psicologo: psicologo
+        };
+        
+        try {
+            // Enviar dados para a API
+            await window.API.auth.registro(userData);
+            
+            // Mostrar mensagem de sucesso
+            showSuccess('Conta criada com sucesso! Redirecionando...');
+            
+            // Redirecionar após 2 segundos
+            setTimeout(() => {
+                window.location.href = './dashboard.html';
+            }, 2000);
+            
+        } catch (error) {
+            showError(error.message || 'Erro ao criar conta. Tente novamente.');
         }
     });
+    
+    function showError(message) {
+        msgError.textContent = message;
+        msgError.style.display = 'block';
+    }
+    
+    function showSuccess(message) {
+        msgSuccess.textContent = message;
+        msgSuccess.style.display = 'block';
+    }
 });
-
-function validateForm() {
-    const fields = ['nomeCompleto', 'usuario', 'email', 'telefone', 'senha', 'psicologo'];
-    const confirmSenha = document.querySelector('#confirmSenha');
-    const senha = document.querySelector('#senha');
-    const sexoSelecionado = document.querySelector('input[name="sexo"]:checked');
-
-    return fields.every(id => document.querySelector(`#${id}`).value.trim().length > 0) &&
-           senha.value === confirmSenha.value &&
-           sexoSelecionado;
-}
-
-function saveUserData() {
-    const listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
-    listaUser.push({
-        nomeCompleto: document.querySelector('#nomeCompleto').value,
-        usuario: document.querySelector('#usuario').value,
-        email: document.querySelector('#email').value,
-        telefone: document.querySelector('#telefone').value,
-        senha: document.querySelector('#senha').value,
-        sexo: document.querySelector('input[name="sexo"]:checked').value,
-        psicologo: document.querySelector('#psicologo').value
-    });
-    localStorage.setItem('listaUser', JSON.stringify(listaUser));
-}
-
-function displayMessage(element, message, isSuccess) {
-    element.textContent = message;
-    element.style.display = 'block';
-    element.style.backgroundColor = isSuccess ? '#d4edda' : '#f8d7da';
-    element.style.color = isSuccess ? '#155724' : '#842029';
-}

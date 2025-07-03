@@ -3,50 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-    rel="stylesheet" 
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/signin.css"> <!-- Link para o CSS atualizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/signin.css">
     <title>Entrar - PsicoLife</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <h1>Entrar</h1>
-
-            <div id="msgError"></div>
-
-            <div class="label-float">
-                <input type="text" id="usuario" placeholder="" required>
-                <label id="userLabel" for="usuario">Usuário</label>
+            <div class="logo">
+                <h1>PsicoLife</h1>
+                <p class="tagline">Bem-estar emocional ao seu alcance</p>
             </div>
-
-            <div class="label-float">
-                <input type="password" id="senha" placeholder="" required>
-                <label id="senhaLabel" for="senha">Senha</label>
-                <i class="fa fa-eye" id="togglePassword" aria-hidden="true"></i>
+            
+            <div class="form-container">
+                <h2>Entrar</h2>
+                
+                <div id="msgError" class="alert error" style="display: none;"></div>
+                <div id="msgSuccess" class="alert success" style="display: none;"></div>
+                
+                <form id="loginForm">
+                    <div class="label-float">
+                        <input type="email" id="email" placeholder="" required>
+                        <label for="email">Email</label>
+                        <i class="fas fa-envelope icon"></i>
+                    </div>
+                    
+                    <div class="label-float">
+                        <input type="password" id="senha" placeholder="" required>
+                        <label for="senha">Senha</label>
+                        <i class="fas fa-lock icon"></i>
+                        <i class="fas fa-eye toggle-password" id="togglePassword" aria-hidden="true"></i>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <div class="remember">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Lembrar-me</label>
+                        </div>
+                        <a href="#" class="forgot">Esqueceu a senha?</a>
+                    </div>
+                    
+                    <div class="justify-center">
+                        <button type="submit" class="btn-primary">Entrar</button>
+                    </div>
+                </form>
+                
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                
+                <p class="signup-text">Não tem uma conta? 
+                    <a href="../html/signup.html" class="link-highlight">Cadastre-se</a>
+                </p>
             </div>
-
-            <div class="justify-center">
-                <button class="btn-primary" onclick="entrar()">Entrar</button>
-            </div>
-
-            <div class="divider">
-                <hr>
-            </div>
-
-            <p>Não tem uma conta? 
-                <a href="../html/signup.html" class="link-highlight">Cadastre-se</a>
-            </p>
+        </div>
+        
+        <div class="welcome-text">
+            <h2>Bem-vindo de volta!</h2>
+            <p>Sua jornada de bem-estar continua aqui.</p>
         </div>
     </div>
-
+    
     <footer>
-        <div class="justify-center">
-            <a href="../html/linding-page.html" class="btn-secondary">Voltar à Página Inicial</a>
-        </div>
+        <a href="../html/landing-page.html" class="btn-secondary">
+            <i class="fas fa-home"></i> Voltar à Página Inicial
+        </a>
     </footer>
-
-    <script src="../js/signin.js"></script> <!-- Link para o JavaScript -->
+    
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/signin.js"></script>
 </body>
 </html>
