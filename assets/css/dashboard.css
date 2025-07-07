@@ -1,0 +1,774 @@
+/* Importando fonte Poppins - mais moderna e legível */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset e configurações básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  color: #272262;
+  font-size: 24px;
+}
+
+.logo h1 {
+  color: #272262;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.logo .tagline {
+  display: block;
+}
+
+.tagline {
+  color: #666;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+/* Navegação - MODIFICADO */
+nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-bottom: 4px;
+}
+
+nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+nav a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+nav a i {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+nav a:hover, nav a.active {
+  color: #272262;
+  background-color: #f0f0f0;
+}
+
+nav a.active {
+  background-color: #272262;
+  color: white;
+}
+
+/* Controles do cabeçalho */
+.header-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+#theme-toggle i {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Menu do usuário */
+.user-menu {
+  position: relative;
+}
+
+#user-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+#user-button:hover {
+  background-color: #f0f0f0;
+}
+
+#user-button img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  padding: 10px 0;
+  margin-top: 10px;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu a i {
+  width: 20px;
+  text-align: center;
+  color: #272262;
+}
+
+.user-menu:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  padding: 10px 0;
+  margin-top: 5px;
+  display: none;
+  z-index: 1000;
+}
+
+/* Banner de boas-vindas */
+#welcome-banner {
+  background: linear-gradient(135deg, #272262, #4038a0);
+  color: white;
+  padding: 40px 0;
+}
+
+.welcome-content {
+  text-align: center;
+}
+
+.welcome-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.welcome-content p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Seção de recursos */
+#recursos {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #272262;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #272262;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.resource-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.resource-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #272262, #4038a0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.resource-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+.resource-card h3 {
+  font-size: 18px;
+  color: #272262;
+  margin-bottom: 15px;
+}
+
+.resource-card p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.btn-resource {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #272262;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-resource:hover {
+  background-color: #4038a0;
+  transform: translateY(-3px);
+}
+
+/* Seção Sobre o Projeto */
+#sobre-projeto {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção Sobre a Clínica */
+#sobre-clinica {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.clinic-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.clinic-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.clinic-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.clinic-info {
+  flex: 1;
+}
+
+.clinic-info p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.clinic-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature i {
+  font-size: 20px;
+  color: #272262;
+}
+
+.feature span {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Seção de contato */
+#contato {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.contact-item i {
+  font-size: 22px;
+  color: #272262;
+  margin-top: 5px;
+}
+
+.contact-item h3 {
+  font-size: 18px;
+  color: #272262;
+  margin-bottom: 5px;
+}
+
+.contact-item p {
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.contact-map {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #272262;
+  color: white;
+  padding: 60px 0 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.footer-links-column h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-links-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.footer-links-column ul {
+  list-style: none;
+}
+
+.footer-links-column li {
+  margin-bottom: 10px;
+}
+
+.footer-links-column a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+
+.footer-links-column a:hover {
+  color: white;
+}
+
+.footer-social h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-social h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: white;
+  color: #272262;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Tema escuro */
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme header {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .logo h1 {
+  color: #fff !important;
+}
+
+body.dark-theme .tagline {
+  color: #fff !important;
+}
+
+body.dark-theme .logo i {
+  color: #fff !important;
+}
+
+body.dark-theme #user-name {
+  color: #fff !important;
+}
+
+body.dark-theme #user-button img,
+body.dark-theme #profile-button img {
+  filter: brightness(0.8) contrast(1.2);
+  border: 2px solid #fff;
+}
+
+body.dark-theme nav a {
+  color: #bbb;
+}
+
+body.dark-theme nav a:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+body.dark-theme nav a.active {
+  background-color: #4038a0;
+}
+
+body.dark-theme #theme-toggle i {
+  color: #bbb;
+}
+
+body.dark-theme #theme-toggle:hover,
+body.dark-theme #user-button:hover {
+  background-color: #333;
+}
+
+body.dark-theme #user-name {
+  color: #ddd;
+}
+
+body.dark-theme .dropdown-menu {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .dropdown-menu a {
+  color: #ddd;
+}
+
+body.dark-theme .dropdown-menu a:hover {
+  background-color: #333;
+}
+
+body.dark-theme #recursos,
+body.dark-theme #sobre-clinica {
+  background-color: #1e1e1e;
+}
+
+body.dark-theme #sobre-projeto,
+body.dark-theme #contato {
+  background-color: #121212;
+}
+
+body.dark-theme .section-title {
+  color: #fff;
+}
+
+body.dark-theme .resource-card,
+body.dark-theme .feature {
+  background-color: #2d2d2d;
+}
+
+body.dark-theme .resource-card h3 {
+  color: #fff;
+}
+
+body.dark-theme .resource-card p,
+body.dark-theme .about-text p,
+body.dark-theme .clinic-info p,
+body.dark-theme .contact-item p {
+  color: #bbb;
+}
+
+body.dark-theme .feature span {
+  color: #ddd;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .logo {
+    margin-bottom: 10px;
+  }
+  
+  nav {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .welcome-content h2 {
+    font-size: 24px;
+  }
+  
+  .welcome-content p {
+    font-size: 14px;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .clinic-features {
+    grid-template-columns: 1fr;
+  }
+}

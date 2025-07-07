@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard da Clínica | PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>PsicoLife</h1>
+                </div>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-info">
+                <img src="../images/perfil.png" alt="Foto de Perfil" class="user-avatar">
+                <div class="user-details">
+                    <h3 id="user-name">Andreia Monteiro</h3>
+                    <span id="user-role" class="user-role clinic">Administradora</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#estatisticas">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Estatísticas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#psicologos">
+                            <i class="fas fa-user-md"></i>
+                            <span>Psicólogos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pacientes">
+                            <i class="fas fa-user-injured"></i>
+                            <span>Pacientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#agendamentos">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Agendamentos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#financeiro">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Financeiro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#relatorios">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Relatórios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#configuracoes">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h2>Dashboard da Clínica</h2>
+                    <nav class="breadcrumb">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Dashboard</span>
+                    </nav>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">5</span>
+                        </button>
+                        
+                        <button class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content-body">
+                <!-- Stats Cards -->
+                <section class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon patients">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total de Pacientes</h3>
+                            <p class="stat-value">845</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 32 novos este mês
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon psychologists">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Psicólogos Ativos</h3>
+                            <p class="stat-value">42</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 3 novos este mês
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon calendar">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Consultas Hoje</h3>
+                            <p class="stat-value">78</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% desde a semana passada
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon finance">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Receita Mensal</h3>
+                            <p class="stat-value">R$ 42.850</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 8% desde o mês passado
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Charts Section -->
+                <section class="charts-section">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Consultas por Período</h3>
+                            <div class="chart-actions">
+                                <button class="chart-period active">Dia</button>
+                                <button class="chart-period">Semana</button>
+                                <button class="chart-period">Mês</button>
+                                <button class="chart-period">Ano</button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="appointmentsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Distribuição de Pacientes</h3>
+                            <div class="chart-actions">
+                                <button class="chart-filter">
+                                    <i class="fas fa-filter"></i>
+                                    Filtrar
+                                </button>
+                                <button class="chart-download">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="patientsChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Agendamentos do Dia -->
+                <section class="today-appointments">
+                    <div class="section-header">
+                        <h3>Agendamentos de Hoje</h3>
+                        <button class="view-all-btn">Ver Todos</button>
+                    </div>
+                    
+                    <div class="appointments-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Horário</th>
+                                    <th>Paciente</th>
+                                    <th>Psicólogo</th>
+                                    <th>Tipo</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00</td>
+                                    <td>
+                                        <div class="patient-info">
+                                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Paciente">
+                                            <span>Juliana Costa</span>
+                                        </div>
+                                    </td>
+                                    <td>Dra. Ana Silva</td>
+                                    <td>Primeira Consulta</td>
+                                    <td><span class="status completed">Concluída</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn-icon" title="Ver detalhes">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>09:30</td>
+                                    <td>
+                                        <div class="patient-info">
+                                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Paciente">
+                                            <span>Roberto Almeida</span>
+                                        </div>
+                                    </td>
+                                    <td>Dr. Carlos Mendes</td>
+                                    <td>Retorno</td>
+                                    <td><span class="status completed">Concluída</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn-icon" title="Ver detalhes">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>11:00</td>
+                                    <td>
+                                        <div class="patient-info">
+                                            <img src="https://randomuser.me/api/portraits/women/58.jpg" alt="Paciente">
+                                            <span>Fernanda Lima</span>
+                                        </div>
+                                    </td>
+                                    <td>Dra. Juliana Alves</td>
+                                    <td>Retorno</td>
+                                    <td><span class="status active">Em Andamento</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn-icon" title="Ver detalhes">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>14:00</td>
+                                    <td>
+                                        <div class="patient-info">
+                                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Paciente">
+                                            <span>Marcos Oliveira</span>
+                                        </div>
+                                    </td>
+                                    <td>Dr. Ricardo Santos</td>
+                                    <td>Primeira Consulta</td>
+                                    <td><span class="status upcoming">Agendada</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn-icon" title="Ver detalhes">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-icon" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon" title="Cancelar">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>15:30</td>
+                                    <td>
+                                        <div class="patient-info">
+                                            <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Paciente">
+                                            <span>Camila Souza</span>
+                                        </div>
+                                    </td>
+                                    <td>Dra. Ana Silva</td>
+                                    <td>Retorno</td>
+                                    <td><span class="status upcoming">Agendada</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn-icon" title="Ver detalhes">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-icon" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon" title="Cancelar">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Desempenho dos Psicólogos -->
+                <section class="psychologists-performance">
+                    <div class="section-header">
+                        <h3>Desempenho dos Psicólogos</h3>
+                        <div class="section-actions">
+                            <select id="performance-period">
+                                <option value="week">Esta Semana</option>
+                                <option value="month" selected>Este Mês</option>
+                                <option value="quarter">Este Trimestre</option>
+                                <option value="year">Este Ano</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="performance-cards">
+                        <div class="performance-card">
+                            <div class="performance-header">
+                                <div class="psychologist-info">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Psicóloga">
+                                    <div>
+                                        <h4>Dra. Ana Silva</h4>
+                                        <span>Especialista em Ansiedade</span>
+                                    </div>
+                                </div>
+                                <div class="performance-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </div>
+                            <div class="performance-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Consultas</span>
+                                    <span class="stat-value">87</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Pacientes</span>
+                                    <span class="stat-value">32</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Taxa de Melhora</span>
+                                    <span class="stat-value">78%</span>
+                                </div>
+                            </div>
+                            <div class="performance-chart">
+                                <canvas id="psychologist1Chart" height="80"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="performance-card">
+                            <div class="performance-header">
+                                <div class="psychologist-info">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Psicólogo">
+                                    <div>
+                                        <h4>Dr. Carlos Mendes</h4>
+                                        <span>Especialista em Depressão</span>
+                                    </div>
+                                </div>
+                                <div class="performance-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                            <div class="performance-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Consultas</span>
+                                    <span class="stat-value">76</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Pacientes</span>
+                                    <span class="stat-value">28</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Taxa de Melhora</span>
+                                    <span class="stat-value">72%</span>
+                                </div>
+                            </div>
+                            <div class="performance-chart">
+                                <canvas id="psychologist2Chart" height="80"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="performance-card">
+                            <div class="performance-header">
+                                <div class="psychologist-info">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Psicóloga">
+                                    <div>
+                                        <h4>Dra. Juliana Alves</h4>
+                                        <span>Especialista em Trauma</span>
+                                    </div>
+                                </div>
+                                <div class="performance-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </div>
+                            <div class="performance-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Consultas</span>
+                                    <span class="stat-value">65</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Pacientes</span>
+                                    <span class="stat-value">24</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Taxa de Melhora</span>
+                                    <span class="stat-value">75%</span>
+                                </div>
+                            </div>
+                            <div class="performance-chart">
+                                <canvas id="psychologist3Chart" height="80"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Resumo Financeiro -->
+                <section class="financial-summary">
+                    <div class="section-header">
+                        <h3>Resumo Financeiro</h3>
+                        <button class="view-all-btn">Ver Relatório Completo</button>
+                    </div>
+                    
+                    <div class="financial-overview">
+                        <div class="financial-card">
+                            <div class="financial-icon revenue">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="financial-details">
+                                <h4>Receita Total</h4>
+                                <p class="financial-value">R$ 42.850,00</p>
+                                <p class="financial-change positive">
+                                    <i class="fas fa-arrow-up"></i> 8% desde o mês passado
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="financial-card">
+                            <div class="financial-icon expenses">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="financial-details">
+                                <h4>Despesas</h4>
+                                <p class="financial-value">R$ 18.320,00</p>
+                                <p class="financial-change negative">
+                                    <i class="fas fa-arrow-up"></i> 5% desde o mês passado
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="financial-card">
+                            <div class="financial-icon profit">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="financial-details">
+                                <h4>Lucro Líquido</h4>
+                                <p class="financial-value">R$ 24.530,00</p>
+                                <p class="financial-change positive">
+                                    <i class="fas fa-arrow-up"></i> 10% desde o mês passado
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="financial-card">
+                            <div class="financial-icon pending">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="financial-details">
+                                <h4>Pagamentos Pendentes</h4>
+                                <p class="financial-value">R$ 5.780,00</p>
+                                <p class="financial-change negative">
+                                    <i class="fas fa-arrow-up"></i> 3% desde o mês passado
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="financial-chart">
+                        <canvas id="financialChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/clinica-dashboard.js"></script>
+</body>
+</html>

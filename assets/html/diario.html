@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Emocional - PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/diario.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>PsicoLife</h1>
+                <p class="tagline">Bem-estar emocional ao seu alcance</p>
+            </div>
+            
+            <nav>
+                <a href="./landing-page.html"><i class="fas fa-home"></i> Início</a>
+                <a href="./diario.html" class="active"><i class="fas fa-book"></i> Diário</a>
+                <a href="./quiz.html"><i class="fas fa-question-circle"></i> Quiz</a>
+                <a href="./guia-escape.html"><i class="fas fa-compass"></i> Guia de Escape</a>
+            </nav>
+            
+            <div class="header-controls">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="auth-buttons">
+                    <a href="./signin.html" class="btn-login">Entrar</a>
+                    <a href="./signup.html" class="btn-signup">Cadastrar</a>
+                </div>
+                <div class="user-menu">
+                    <button id="user-button" aria-label="Menu do usuário">
+                        <img src="../images/perfil.png" alt="Perfil">
+                        <span id="user-name">Usuário</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="./perfil.html"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="./configuracoes.html"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="diary-header">
+                <h2>Diário Emocional</h2>
+                <p>Registre seus pensamentos e sentimentos para acompanhar seu progresso emocional</p>
+            </div>
+            
+            <div class="diary-content">
+                <div class="diary-sidebar">
+                    <div class="diary-actions">
+                        <button id="new-entry-btn" class="btn-primary">
+                            <i class="fas fa-plus"></i> Nova Entrada
+                        </button>
+                    </div>
+                    
+                    <div class="diary-filter">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Pesquisar entradas...">
+                        </div>
+                        
+                        <div class="filter-options">
+                            <select id="mood-filter">
+                                <option value="">Todos os humores</option>
+                                <option value="feliz">Feliz</option>
+                                <option value="triste">Triste</option>
+                                <option value="ansioso">Ansioso</option>
+                                <option value="calmo">Calmo</option>
+                                <option value="irritado">Irritado</option>
+                            </select>
+                            
+                            <select id="date-filter">
+                                <option value="">Todas as datas</option>
+                                <option value="hoje">Hoje</option>
+                                <option value="semana">Esta semana</option>
+                                <option value="mes">Este mês</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="diary-entries">
+                        <div class="entry-item active">
+                            <div class="entry-date">
+                                <span class="day">20</span>
+                                <span class="month">Mai</span>
+                            </div>
+                            <div class="entry-preview">
+                                <div class="entry-mood">
+                                    <i class="fas fa-smile mood-icon happy"></i>
+                                    <span>Feliz</span>
+                                </div>
+                                <h3>Dia produtivo</h3>
+                                <p>Hoje foi um dia muito produtivo. Consegui terminar...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="entry-item">
+                            <div class="entry-date">
+                                <span class="day">19</span>
+                                <span class="month">Mai</span>
+                            </div>
+                            <div class="entry-preview">
+                                <div class="entry-mood">
+                                    <i class="fas fa-meh mood-icon neutral"></i>
+                                    <span>Neutro</span>
+                                </div>
+                                <h3>Dia comum</h3>
+                                <p>Nada de especial aconteceu hoje. Fiz as tarefas...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="entry-item">
+                            <div class="entry-date">
+                                <span class="day">18</span>
+                                <span class="month">Mai</span>
+                            </div>
+                            <div class="entry-preview">
+                                <div class="entry-mood">
+                                    <i class="fas fa-frown mood-icon sad"></i>
+                                    <span>Triste</span>
+                                </div>
+                                <h3>Dia difícil</h3>
+                                <p>Hoje foi um dia complicado. Tive dificuldades...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="entry-item">
+                            <div class="entry-date">
+                                <span class="day">17</span>
+                                <span class="month">Mai</span>
+                            </div>
+                            <div class="entry-preview">
+                                <div class="entry-mood">
+                                    <i class="fas fa-angry mood-icon angry"></i>
+                                    <span>Irritado</span>
+                                </div>
+                                <h3>Problemas no trabalho</h3>
+                                <p>Tive alguns problemas no trabalho hoje que me...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="entry-item">
+                            <div class="entry-date">
+                                <span class="day">16</span>
+                                <span class="month">Mai</span>
+                            </div>
+                            <div class="entry-preview">
+                                <div class="entry-mood">
+                                    <i class="fas fa-smile-beam mood-icon excited"></i>
+                                    <span>Animado</span>
+                                </div>
+                                <h3>Novos planos</h3>
+                                <p>Hoje comecei a planejar minhas férias e estou...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diary-viewer">
+                    <div class="entry-header">
+                        <div class="entry-info">
+                            <div class="entry-date-full">
+                                <i class="far fa-calendar"></i>
+                                <span>20 de Maio de 2025, 14:30</span>
+                            </div>
+                            <div class="entry-mood-full">
+                                <i class="fas fa-smile mood-icon happy"></i>
+                                <span>Feliz</span>
+                            </div>
+                        </div>
+                        
+                        <div class="entry-actions">
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="entry-content">
+                        <h2>Dia produtivo</h2>
+                        
+                        <div class="entry-text">
+                            <p>Hoje foi um dia muito produtivo. Consegui terminar todas as tarefas que havia planejado e ainda tive tempo para relaxar um pouco.</p>
+                            
+                            <p>Pela manhã, fiz exercícios físicos e me senti muito bem. O exercício realmente ajuda a melhorar meu humor e me dá mais energia para o dia.</p>
+                            
+                            <p>No trabalho, consegui resolver um problema que estava me incomodando há dias. Foi muito gratificante encontrar a solução e ver que meu esforço valeu a pena.</p>
+                            
+                            <p>À tarde, tive uma reunião com minha equipe e recebemos elogios pelo projeto que entregamos. É bom ser reconhecido pelo trabalho bem feito.</p>
+                            
+                            <p>À noite, conversei com minha família e assistimos a um filme juntos. Esses momentos de conexão são muito importantes para mim.</p>
+                            
+                            <p>No geral, foi um dia equilibrado, com momentos de produtividade e também de descanso. Espero que amanhã seja igualmente bom.</p>
+                        </div>
+                        
+                        <div class="entry-tags">
+                            <span class="tag">trabalho</span>
+                            <span class="tag">produtividade</span>
+                            <span class="tag">bem-estar</span>
+                            <span class="tag">família</span>
+                        </div>
+                    </div>
+                    
+                    <div class="entry-reflection">
+                        <h3>Reflexões</h3>
+                        
+                        <div class="reflection-item">
+                            <h4>O que me fez sentir bem hoje?</h4>
+                            <p>Completar minhas tarefas, receber reconhecimento no trabalho e passar tempo com a família.</p>
+                        </div>
+                        
+                        <div class="reflection-item">
+                            <h4>O que aprendi hoje?</h4>
+                            <p>Que equilibrar trabalho e descanso é fundamental para meu bem-estar.</p>
+                        </div>
+                        
+                        <div class="reflection-item">
+                            <h4>O que posso melhorar amanhã?</h4>
+                            <p>Dedicar mais tempo para leitura e desenvolvimento pessoal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal de Nova Entrada -->
+    <div id="new-entry-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nova Entrada no Diário</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="entry-form">
+                    <div class="form-group">
+                        <label for="entry-title">Título</label>
+                        <input type="text" id="entry-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Como você está se sentindo?</label>
+                        <div class="mood-selector">
+                            <div class="mood-option">
+                                <input type="radio" id="mood-happy" name="mood" value="feliz" checked>
+                                <label for="mood-happy">
+                                    <i class="fas fa-smile mood-icon happy"></i>
+                                    <span>Feliz</span>
+                                </label>
+                            </div>
+                            
+                            <div class="mood-option">
+                                <input type="radio" id="mood-neutral" name="mood" value="neutro">
+                                <label for="mood-neutral">
+                                    <i class="fas fa-meh mood-icon neutral"></i>
+                                    <span>Neutro</span>
+                                </label>
+                            </div>
+                            
+                            <div class="mood-option">
+                                <input type="radio" id="mood-sad" name="mood" value="triste">
+                                <label for="mood-sad">
+                                    <i class="fas fa-frown mood-icon sad"></i>
+                                    <span>Triste</span>
+                                </label>
+                            </div>
+                            
+                            <div class="mood-option">
+                                <input type="radio" id="mood-angry" name="mood" value="irritado">
+                                <label for="mood-angry">
+                                    <i class="fas fa-angry mood-icon angry"></i>
+                                    <span>Irritado</span>
+                                </label>
+                            </div>
+                            
+                            <div class="mood-option">
+                                <input type="radio" id="mood-anxious" name="mood" value="ansioso">
+                                <label for="mood-anxious">
+                                    <i class="fas fa-tired mood-icon anxious"></i>
+                                    <span>Ansioso</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="entry-content">O que aconteceu hoje?</label>
+                        <textarea id="entry-content" rows="6" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="entry-reflection1">O que me fez sentir bem hoje?</label>
+                        <textarea id="entry-reflection1" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="entry-reflection2">O que aprendi hoje?</label>
+                        <textarea id="entry-reflection2" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="entry-reflection3">O que posso melhorar amanhã?</label>
+                        <textarea id="entry-reflection3" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="entry-tags">Tags (separadas por vírgula)</label>
+                        <input type="text" id="entry-tags" placeholder="Ex: trabalho, família, saúde">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary cancel-modal">Cancelar</button>
+                        <button type="submit" class="btn-primary">Salvar Entrada</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsicoLife | Andreia Monteiro Espaço Saúde e Fisioterapia Integrada. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/diario.js"></script>
+</body>
+</html>
