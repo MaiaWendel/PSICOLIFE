@@ -1,0 +1,441 @@
+/* Importando fonte Poppins - mais moderna e legível */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset e configurações básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: url(../images/Signup-bg.png) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card de cadastro */
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #0d009c, #4038a0);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Logo e cabeçalho */
+.logo {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.logo h1 {
+  font-size: 28px;
+  color: #0d009c;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.tagline {
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Container do formulário */
+.form-container {
+  position: relative;
+  z-index: 1;
+}
+
+.form-container h2 {
+  font-size: 22px;
+  color: #0d009c;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Grid para layout de 2 colunas */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Campos de formulário */
+.label-float {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.label-float input,
+.label-float select {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.label-float input:focus,
+.label-float select:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(13, 0, 156, 0.2);
+}
+
+.label-float label {
+  position: absolute;
+  top: 12px;
+  left: 40px;
+  color: #888;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label,
+.label-float select:focus + label,
+.label-float select:valid + label {
+  top: -10px;
+  left: 15px;
+  font-size: 12px;
+  color: #0d009c;
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+/* Select personalizado */
+.select-float select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 30px;
+}
+
+.select-float::after {
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  color: #888;
+  pointer-events: none;
+}
+
+/* Ícones nos campos */
+.icon {
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  color: #888;
+  font-size: 16px;
+}
+
+/* Ícone para alternar visibilidade da senha */
+.toggle-password {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+}
+
+.toggle-password:hover {
+  color: #0d009c;
+}
+
+/* Seleção de gênero */
+.gender-select {
+  margin-bottom: 20px;
+}
+
+.gender-select > label {
+  display: block;
+  margin-bottom: 8px;
+  color: #0d009c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.gender-options {
+  display: flex;
+  gap: 15px;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+}
+
+.gender-option input[type="radio"] {
+  display: none;
+}
+
+.gender-option label {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gender-option label i {
+  margin-right: 5px;
+}
+
+.gender-option input[type="radio"]:checked + label {
+  background-color: #0d009c;
+  color: #fff;
+}
+
+/* Termos e condições */
+.terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.terms input {
+  margin-right: 8px;
+}
+
+.terms a {
+  color: #0d009c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* Botão de cadastro */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #0d009c, #4038a0);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary i {
+  margin-right: 8px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4038a0, #0d009c);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(13, 0, 156, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Divisor de conteúdo */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 45%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 45%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider span {
+  background-color: #fff;
+  padding: 0 10px;
+  color: #888;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Texto de login */
+.login-text {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link-highlight {
+  color: #0d009c;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-highlight:hover {
+  color: #4038a0;
+  text-decoration: underline;
+}
+
+/* Mensagens de alerta */
+.alert {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: none;
+}
+
+.alert.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.alert.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+/* Texto de boas-vindas */
+.welcome-text {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  padding: 20px;
+  display: none;
+}
+
+.welcome-text h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.welcome-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Botão secundário */
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-secondary i {
+  margin-right: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (min-width: 992px) {
+  .welcome-text {
+    display: block;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+  
+  .welcome-text {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gender-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

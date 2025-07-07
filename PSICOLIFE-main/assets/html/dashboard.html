@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>PsicoLife</h1>
+                <p class="tagline">Bem-estar emocional ao seu alcance</p>
+            </div>
+            
+            <nav>
+                <a href="#recursos" class="active"><i class="fas fa-home"></i> Início</a>
+                <a href="./diario.html"><i class="fas fa-book"></i> Diário</a>
+                <a href="./quiz.html"><i class="fas fa-question-circle"></i> Quiz</a>
+                <a href="./guia-escape.html"><i class="fas fa-compass"></i> Guia de Escape</a>
+                <a href="#sobre-clinica"><i class="fas fa-clinic-medical"></i> Sobre a Clínica</a>
+                <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+            </nav>
+            
+            <div class="header-controls">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="auth-buttons">
+                    <a href="./signin.html" class="btn-login">Entrar</a>
+                    <a href="./signup.html" class="btn-signup">Cadastrar</a>
+                </div>
+                <div class="user-menu">
+                    <button id="user-button" aria-label="Menu do usuário">
+                        <img src="../images/perfil.png" alt="Perfil">
+                        <span id="user-name">Usuário</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="./perfil.html"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="./configuracoes.html"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="welcome-banner">
+            <div class="container">
+                <div class="welcome-content">
+                    <h2>Bem-vindo(a), <span id="user-welcome-name">Usuário</span>!</h2>
+                    <p>Que bom ter você conosco. Aqui você encontra todos os recursos para cuidar da sua saúde mental.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos">
+            <div class="container">
+                <h2 class="section-title">Recursos Disponíveis</h2>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Diário Emocional</h3>
+                        <p>Registre seus pensamentos e sentimentos diários para acompanhar seu progresso emocional.</p>
+                        <a href="./diario.html" class="btn-resource">Acessar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Quiz de Autoconhecimento</h3>
+                        <p>Descubra mais sobre seus padrões emocionais e comportamentais através de questionários.</p>
+                        <a href="./quiz.html" class="btn-resource">Acessar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3>Guia de Escape</h3>
+                        <p>Técnicas e exercícios para momentos de ansiedade, estresse ou crises emocionais.</p>
+                        <a href="./guia-escape.html" class="btn-resource">Acessar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Agendamento</h3>
+                        <p>Agende suas consultas com seu psicólogo diretamente pela plataforma.</p>
+                        <a href="#" class="btn-resource">Em breve <i class="fas fa-clock"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-projeto">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Sobre o Projeto PsicoLife</h2>
+                        <p>O PsicoLife é uma plataforma digital desenvolvida para auxiliar no acompanhamento e tratamento psicológico, criando uma ponte entre pacientes e profissionais de saúde mental.</p>
+                        <p>Nossa missão é tornar o cuidado com a saúde mental mais acessível, integrado e contínuo, oferecendo ferramentas que ajudam tanto no autoconhecimento quanto no trabalho terapêutico.</p>
+                        <p>Através do diário emocional, quizzes e técnicas de manejo de crises, buscamos proporcionar recursos que complementam o tratamento presencial e ajudam no dia a dia dos pacientes.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Projeto PsicoLife">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-clinica">
+            <div class="container">
+                <h2 class="section-title">Andreia Monteiro Espaço Saúde e Fisioterapia Integrada</h2>
+                
+                <div class="clinic-content">
+                    <div class="clinic-image">
+                        <img src="https://via.placeholder.com/500x300" alt="Clínica Andreia Monteiro">
+                    </div>
+                    
+                    <div class="clinic-info">
+                        <p>A <strong>Andreia Monteiro Espaço Saúde e Fisioterapia Integrada</strong> é um centro de saúde multidisciplinar dedicado ao bem-estar físico e mental dos pacientes.</p>
+                        
+                        <p>Nossa clínica oferece uma abordagem integrada que combina fisioterapia, psicologia e outras especialidades para proporcionar um tratamento completo e personalizado.</p>
+                        
+                        <p>Contamos com uma equipe de profissionais qualificados e comprometidos com a saúde e qualidade de vida de nossos pacientes, em um ambiente acolhedor e preparado para oferecer o melhor atendimento.</p>
+                        
+                        <div class="clinic-features">
+                            <div class="feature">
+                                <i class="fas fa-user-md"></i>
+                                <span>Equipe multidisciplinar</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-certificate"></i>
+                                <span>Profissionais certificados</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Atendimento humanizado</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-wheelchair"></i>
+                                <span>Acessibilidade</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <div class="container">
+                <h2 class="section-title">Entre em Contato</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Endereço</h3>
+                                <p>R. Castro Fafe, 333 - 1º andar</p>
+                                <p>Centro, Atibaia - SP, 12940-440</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h3>Telefone</h3>
+                                <p>(11) 4411-5678</p>
+                                <p>(11) 98765-4321 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>contato@andreiamonteiro.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Horário de Funcionamento</h3>
+                                <p>Segunda a Sexta: 8h às 20h</p>
+                                <p>Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.0290282472384!2d-46.55483492396868!3d-23.12292994327825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cec0a1f9b5b0a7%3A0x3c9eefc6fa2b440e!2sR.%20Castro%20Fafe%2C%20333%20-%20Centro%2C%20Atibaia%20-%20SP%2C%2012940-440!5e0!3m2!1spt-BR!2sbr!4v1684345678901!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>PsicoLife</h2>
+                    <p>Bem-estar emocional ao seu alcance</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Navegação</h3>
+                        <ul>
+                            <li><a href="#recursos">Início</a></li>
+                            <li><a href="#sobre-projeto">Sobre o Projeto</a></li>
+                            <li><a href="#sobre-clinica">Sobre a Clínica</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>Recursos</h3>
+                        <ul>
+                            <li><a href="./diario.html">Diário Emocional</a></li>
+                            <li><a href="./quiz.html">Quiz</a></li>
+                            <li><a href="./guia-escape.html">Guia de Escape</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="./termos-e-condicoes.html">Termos e Condições</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Siga-nos</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/clinicaandreiamonteiro" target="_blank" aria-label="Instagram da Clínica Andreia Monteiro"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsicoLife | Andreia Monteiro Espaço Saúde e Fisioterapia Integrada. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
