@@ -42,7 +42,9 @@ def criar_entrada():
         reflexao_positiva=data.get('reflexao_positiva'),
         reflexao_aprendizado=data.get('reflexao_aprendizado'),
         reflexao_melhoria=data.get('reflexao_melhoria'),
-        tags=','.join(data.get('tags', []))
+        tags=','.join(data.get('tags', [])) if data.get('tags') else None
+        # categoria=data.get('categoria'),
+        # privado=data.get('privado', True)
     )
     
     db.session.add(nova_entrada)
@@ -64,20 +66,25 @@ def atualizar_entrada(id):
     if not entrada:
         return jsonify({'mensagem': 'Entrada não encontrada'}), 404
     
-    if data.get('titulo'):
+    # Atualizar campos fornecidos
+    if 'titulo' in data:
         entrada.titulo = data['titulo']
-    if data.get('conteudo'):
+    if 'conteudo' in data:
         entrada.conteudo = data['conteudo']
-    if data.get('humor'):
+    if 'humor' in data:
         entrada.humor = data['humor']
-    if data.get('reflexao_positiva'):
+    if 'reflexao_positiva' in data:
         entrada.reflexao_positiva = data['reflexao_positiva']
-    if data.get('reflexao_aprendizado'):
+    if 'reflexao_aprendizado' in data:
         entrada.reflexao_aprendizado = data['reflexao_aprendizado']
-    if data.get('reflexao_melhoria'):
+    if 'reflexao_melhoria' in data:
         entrada.reflexao_melhoria = data['reflexao_melhoria']
-    if data.get('tags'):
-        entrada.tags = ','.join(data['tags'])
+    if 'tags' in data:
+        entrada.tags = ','.join(data['tags']) if data['tags'] else None
+    # if 'categoria' in data:
+    #     entrada.categoria = data['categoria']
+    # if 'privado' in data:
+    #     entrada.privado = data['privado']
     
     db.session.commit()
     

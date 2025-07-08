@@ -118,38 +118,87 @@ def responder_quiz():
     if not quiz:
         return jsonify({'mensagem': 'Quiz não encontrado'}), 404
     
-    # Aqui você implementaria a lógica para calcular o resultado com base nas respostas
-    # Por simplicidade, vamos apenas armazenar as respostas e um resultado fictício
+    # Calcular resultado baseado nas respostas
+    respostas = data['respostas']
+    pontuacao_total = sum(respostas.values())
+    num_perguntas = len(respostas)
+    pontuacao_media = pontuacao_total / num_perguntas if num_perguntas > 0 else 0
+    
+    # Determinar nível baseado na pontuação
+    if pontuacao_media <= 2:
+        nivel = 'baixo'
+        categoria = 'Bem-estar Emocional Bom'
+        recomendacoes = 'Continue mantendo hábitos saudáveis e práticas de autocuidado.'
+    elif pontuacao_media <= 3:
+        nivel = 'medio'
+        categoria = 'Atenção Necessária'
+        recomendacoes = 'Considere práticas de relaxamento e converse com um profissional se necessário.'
+    else:
+        nivel = 'alto'
+        categoria = 'Busque Ajuda Profissional'
+        recomendacoes = 'Recomendamos buscar ajuda de um psicólogo para melhor acompanhamento.'
     
     resultado = {
-        'pontuacao': 80,
-        'categoria': 'Ansiedade Leve',
-        'pontuacoes': {
-            'ansiedade': 60,
-            'depressao': 30,
-            'estresse': 45
-        },
-        'recomendacoes': [
-            'Pratique técnicas de respiração',
-            'Mantenha um diário de gratidão',
-            'Praticar atividade física regularmente'
-        ]
+        'pontuacao': int(pontuacao_total),
+        'pontuacao_media': round(pontuacao_media, 2),
+        'nivel': nivel,
+        'categoria': categoria,
+        'recomendacoes': recomendacoes
     }
     
     nova_resposta = RespostaQuiz(
         quiz_id=data['quiz_id'],
         usuario_id=usuario_id,
-        respostas=json.dumps(data['respostas']),
-        resultado=json.dumps(resultado)
+        respostas=json.dumps(respostas),
+        resultado=json.dumps(resultado),
+        pontuacao=int(pontuacao_total),
+        nivel=nivel,
+        recomendacoes=recomendacoes,
+        finalizado=True
     )
     
     db.session.add(nova_resposta)
     db.session.commit()
     
     return jsonify({
-        'mensagem': 'Quiz respondido com sucesso',
-        'resultado': resultado
+        'mensagem': 'Quiz finalizado com sucesso',
+        'resultado': resultado,
+        'resposta_id': nova_resposta.id
     }), 201
+
+@quiz_bp.route('/salvar-progresso', methods=['POST'])
+@jwt_required()
+def salvar_progresso():
+    usuario_id = get_jwt_identity()
+    data = request.get_json()
+    
+    if not data or not data.get('quiz_id'):
+        return jsonify({'mensagem': 'Dados incompletos'}), 400
+    
+    # Verificar se já existe progresso salvo
+    resposta_existente = RespostaQuiz.query.filter_by(
+        quiz_id=data['quiz_id'],
+        usuario_id=usuario_id,
+        finalizado=False
+    ).first()
+    
+    if resposta_existente:
+        # Atualizar progresso existente
+        resposta_existente.respostas = json.dumps(data.get('respostas', {}))
+        db.session.commit()
+        return jsonify({'mensagem': 'Progresso atualizado'}), 200
+    else:
+        # Criar novo progresso
+        nova_resposta = RespostaQuiz(
+            quiz_id=data['quiz_id'],
+            usuario_id=usuario_id,
+            respostas=json.dumps(data.get('respostas', {})),
+            resultado=json.dumps({}),
+            finalizado=False
+        )
+        db.session.add(nova_resposta)
+        db.session.commit()
+        return jsonify({'mensagem': 'Progresso salvo', 'resposta_id': nova_resposta.id}), 201
 
 @quiz_bp.route('/historico', methods=['GET'])
 @jwt_required()

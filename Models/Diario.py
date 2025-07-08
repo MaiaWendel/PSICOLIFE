@@ -7,6 +7,7 @@ class EntradaDiario(db.Model):
     conteudo = db.Column(db.Text, nullable=False)
     humor = db.Column(db.String(20), nullable=False)
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
+    # data_atualizacao = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
     
     # Campos de reflexão
@@ -16,6 +17,10 @@ class EntradaDiario(db.Model):
     
     # Tags
     tags = db.Column(db.String(200))
+    # categoria = db.Column(db.String(50))
+    
+    # Privacidade (removido temporariamente)
+    # privado = db.Column(db.Boolean, default=True)
     
     def to_dict(self):
         return {
@@ -24,8 +29,11 @@ class EntradaDiario(db.Model):
             'conteudo': self.conteudo,
             'humor': self.humor,
             'data_criacao': self.data_criacao.isoformat(),
+            # 'data_atualizacao': self.data_atualizacao.isoformat(),
             'reflexao_positiva': self.reflexao_positiva,
             'reflexao_aprendizado': self.reflexao_aprendizado,
             'reflexao_melhoria': self.reflexao_melhoria,
             'tags': self.tags.split(',') if self.tags else []
+            # 'categoria': self.categoria,
+            # 'privado': self.privado
         }
