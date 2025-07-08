@@ -1,0 +1,477 @@
+/* Importando estilos do dashboard principal */
+@import url('./dashboard.css');
+
+/* Dashboard do Psicólogo */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #272262;
+    background-color: #f5f5f5;
+}
+
+.tab-btn.active {
+    color: #272262;
+    border-bottom-color: #272262;
+    background-color: #f8f9ff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Seção de Pacientes */
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    color: #272262;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.patients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.patient-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.patient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.patient-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.patient-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #272262, #4038a0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.patient-info h3 {
+    color: #272262;
+    margin-bottom: 5px;
+}
+
+.patient-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.patient-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 10px;
+    background: #f8f9ff;
+    border-radius: 8px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #272262;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.patient-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
+
+.status-inactive {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+/* Evolução Detalhada */
+.evolution-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #272262;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #e0e0e0;
+}
+
+.patient-info {
+    flex: 1;
+}
+
+.patient-info h2 {
+    color: #272262;
+    margin-bottom: 5px;
+}
+
+.patient-info p {
+    color: #666;
+}
+
+.evolution-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+}
+
+.evolution-sidebar {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.evolution-actions {
+    margin-bottom: 20px;
+}
+
+.evolution-timeline {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.timeline-item {
+    padding: 15px;
+    border-left: 3px solid #e0e0e0;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    border-left-color: #272262;
+    background: #f8f9ff;
+}
+
+.timeline-item.active {
+    border-left-color: #272262;
+    background: #f0f0ff;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.timeline-summary {
+    font-weight: 500;
+    color: #272262;
+    margin-bottom: 5px;
+}
+
+.timeline-scores {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+}
+
+.score-item {
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: #f5f5f5;
+}
+
+.evolution-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.evolution-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+    color: #272262;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.patient-activity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.activity-section {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.activity-section h3 {
+    color: #272262;
+    margin-bottom: 15px;
+}
+
+.activity-item {
+    padding: 10px;
+    border-left: 3px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.activity-date {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.activity-content {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Modal de Evolução */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+    color: #272262;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #272262;
+    font-weight: 500;
+}
+
+.form-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.range-value {
+    display: inline-block;
+    background: #272262;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #272262;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #4038a0;
+}
+
+.btn-secondary {
+    background: #f5f5f5;
+    color: #666;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .evolution-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .evolution-sidebar {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .patients-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .evolution-charts,
+    .patient-activity {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-tabs {
+        flex-direction: column;
+    }
+}

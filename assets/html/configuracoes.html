@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>PsicoLife</h1>
+                <p class="tagline">Bem-estar emocional ao seu alcance</p>
+            </div>
+            
+            <nav>
+                <a href="./dashboard.html"><i class="fas fa-home"></i> Início</a>
+                <a href="./diario.html"><i class="fas fa-book"></i> Diário</a>
+                <a href="./quiz.html"><i class="fas fa-question-circle"></i> Quiz</a>
+                <a href="./guia-escape.html"><i class="fas fa-compass"></i> Guia de Escape</a>
+            </nav>
+            
+            <div class="header-controls">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <button id="user-button" aria-label="Menu do usuário">
+                        <img src="../images/perfil.png" alt="Perfil">
+                        <span id="user-name">Usuário</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="./perfil.html"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="./configuracoes.html" class="active"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="settings-header">
+                <h2>Configurações</h2>
+                <p>Personalize sua experiência na plataforma</p>
+            </div>
+
+            <div class="settings-content">
+                <div class="settings-sidebar">
+                    <div class="settings-menu">
+                        <a href="#conta" class="active">Conta</a>
+                        <a href="#seguranca">Segurança</a>
+                        <a href="#notificacoes">Notificações</a>
+                        <a href="#privacidade">Privacidade</a>
+                        <a href="#aparencia">Aparência</a>
+                    </div>
+                </div>
+                
+                <div class="settings-details">
+                    <div id="conta" class="settings-section active">
+                        <h3>Configurações de Conta</h3>
+                        
+                        <form id="account-form">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                                <small>Este email será usado para comunicações e recuperação de senha.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone">
+                                <small>Seu número de telefone para contato e notificações.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="idioma">Idioma</label>
+                                <select id="idioma" name="idioma">
+                                    <option value="pt-BR">Português (Brasil)</option>
+                                    <option value="en-US">English (US)</option>
+                                    <option value="es">Español</option>
+                                </select>
+                                <small>Idioma preferido para a interface.</small>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="seguranca" class="settings-section">
+                        <h3>Segurança</h3>
+                        
+                        <form id="security-form">
+                            <div class="form-group">
+                                <label for="senha-atual">Senha Atual</label>
+                                <div class="password-input">
+                                    <input type="password" id="senha-atual" name="senha-atual">
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nova-senha">Nova Senha</label>
+                                <div class="password-input">
+                                    <input type="password" id="nova-senha" name="nova-senha">
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                                <small>Use pelo menos 8 caracteres com letras, números e símbolos.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmar-senha">Confirmar Nova Senha</label>
+                                <div class="password-input">
+                                    <input type="password" id="confirmar-senha" name="confirmar-senha">
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="autenticacao" name="autenticacao">
+                                <label for="autenticacao">Ativar autenticação de dois fatores</label>
+                                <small>Recomendado para maior segurança da sua conta.</small>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Atualizar Senha</button>
+                            </div>
+                        </form>
+                        
+                        <div class="danger-zone">
+                            <h4>Zona de Perigo</h4>
+                            <p>Ações irreversíveis para sua conta.</p>
+                            
+                            <button class="btn-danger">
+                                <i class="fas fa-trash-alt"></i> Excluir Minha Conta
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="notificacoes" class="settings-section">
+                        <h3>Notificações</h3>
+                        
+                        <form id="notifications-form">
+                            <div class="notification-group">
+                                <h4>Email</h4>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="email-lembretes" name="email-lembretes" checked>
+                                    <label for="email-lembretes">Lembretes de consultas</label>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="email-dicas" name="email-dicas" checked>
+                                    <label for="email-dicas">Dicas e conteúdos sobre saúde mental</label>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="email-atualizacoes" name="email-atualizacoes" checked>
+                                    <label for="email-atualizacoes">Atualizações da plataforma</label>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-group">
+                                <h4>Aplicativo</h4>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="app-lembretes" name="app-lembretes" checked>
+                                    <label for="app-lembretes">Lembretes de diário</label>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="app-consultas" name="app-consultas" checked>
+                                    <label for="app-consultas">Alertas de consultas</label>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="app-mensagens" name="app-mensagens" checked>
+                                    <label for="app-mensagens">Mensagens do psicólogo</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Salvar Preferências</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="privacidade" class="settings-section">
+                        <h3>Privacidade</h3>
+                        
+                        <form id="privacy-form">
+                            <div class="form-group">
+                                <label>Compartilhamento de Dados</label>
+                                <p class="description">Escolha quais informações podem ser compartilhadas com seu psicólogo.</p>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="compartilhar-diario" name="compartilhar-diario" checked>
+                                    <label for="compartilhar-diario">Entradas do diário emocional</label>
+                                </div>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="compartilhar-quiz" name="compartilhar-quiz" checked>
+                                    <label for="compartilhar-quiz">Resultados de quiz</label>
+                                </div>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="compartilhar-atividade" name="compartilhar-atividade" checked>
+                                    <label for="compartilhar-atividade">Atividade na plataforma</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Cookies e Rastreamento</label>
+                                <p class="description">Gerencie como seus dados são coletados durante o uso da plataforma.</p>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="cookies-essenciais" name="cookies-essenciais" checked disabled>
+                                    <label for="cookies-essenciais">Cookies essenciais (obrigatório)</label>
+                                </div>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="cookies-analiticos" name="cookies-analiticos" checked>
+                                    <label for="cookies-analiticos">Cookies analíticos</label>
+                                </div>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="cookies-marketing" name="cookies-marketing">
+                                    <label for="cookies-marketing">Cookies de marketing</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Salvar Preferências</button>
+                            </div>
+                        </form>
+                        
+                        <div class="data-export">
+                            <h4>Seus Dados</h4>
+                            <p>Você pode solicitar uma cópia dos seus dados ou excluí-los.</p>
+                            
+                            <div class="data-actions">
+                                <button class="btn-secondary">
+                                    <i class="fas fa-download"></i> Baixar Meus Dados
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="aparencia" class="settings-section">
+                        <h3>Aparência</h3>
+                        
+                        <form id="appearance-form">
+                            <div class="form-group">
+                                <label>Tema</label>
+                                <div class="theme-options">
+                                    <div class="theme-option">
+                                        <input type="radio" id="theme-light" name="theme" value="light">
+                                        <label for="theme-light">
+                                            <div class="theme-preview light-theme"></div>
+                                            <span>Claro</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="theme-option">
+                                        <input type="radio" id="theme-dark" name="theme" value="dark">
+                                        <label for="theme-dark">
+                                            <div class="theme-preview dark-theme"></div>
+                                            <span>Escuro</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="theme-option">
+                                        <input type="radio" id="theme-system" name="theme" value="system" checked>
+                                        <label for="theme-system">
+                                            <div class="theme-preview system-theme"></div>
+                                            <span>Sistema</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="font-size">Tamanho da Fonte</label>
+                                <div class="range-slider">
+                                    <input type="range" id="font-size" name="font-size" min="80" max="120" value="100">
+                                    <div class="range-labels">
+                                        <span>A</span>
+                                        <span>A</span>
+                                        <span>A</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Salvar Preferências</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsicoLife | Andreia Monteiro Espaço Saúde e Fisioterapia Integrada. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>

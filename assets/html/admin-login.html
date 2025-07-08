@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrativo | PsicoLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-login.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>PsicoLife</h1>
+                </div>
+                <p class="subtitle">Painel Administrativo</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="dev">
+                    <i class="fas fa-code"></i>
+                    <span>Desenvolvedor</span>
+                </button>
+                <button class="tab-btn" data-tab="psi">
+                    <i class="fas fa-user-md"></i>
+                    <span>Psicólogo</span>
+                </button>
+                <button class="tab-btn" data-tab="clinic">
+                    <i class="fas fa-clinic-medical"></i>
+                    <span>Clínica</span>
+                </button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Desenvolvedor -->
+                <div id="dev-tab" class="tab-pane active">
+                    <h2>Acesso de Desenvolvedor</h2>
+                    <p class="form-desc">Acesso completo para gerenciamento do sistema</p>
+                    
+                    <div id="dev-error" class="error-message"></div>
+                    
+                    <form id="dev-form">
+                        <div class="input-group">
+                            <label for="dev-user">Usuário</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="dev-user" name="username" required placeholder="Digite seu usuário">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="dev-pass">Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="dev-pass" name="password" required placeholder="Digite sua senha">
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="remember-group">
+                            <label class="checkbox">
+                                <input type="checkbox" id="dev-remember" name="remember">
+                                <span class="checkmark"></span>
+                                <span>Lembrar-me por 30 dias</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <span>Entrar</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="security-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Acesso restrito aos desenvolvedores do sistema</p>
+                    </div>
+                </div>
+                
+                <!-- Psicólogo -->
+                <div id="psi-tab" class="tab-pane">
+                    <h2>Acesso de Psicólogo</h2>
+                    <p class="form-desc">Acesso para acompanhamento de pacientes</p>
+                    
+                    <div id="psi-error" class="error-message"></div>
+                    
+                    <form id="psi-form">
+                        <div class="input-group">
+                            <label for="psi-user">Usuário</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user-md"></i>
+                                <input type="text" id="psi-user" name="username" required placeholder="Digite seu usuário">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="psi-pass">Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="psi-pass" name="password" required placeholder="Digite sua senha">
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="remember-group">
+                            <label class="checkbox">
+                                <input type="checkbox" id="psi-remember" name="remember">
+                                <span class="checkmark"></span>
+                                <span>Lembrar-me por 30 dias</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <span>Entrar</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="security-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Acesso restrito aos psicólogos cadastrados</p>
+                    </div>
+                </div>
+                
+                <!-- Clínica -->
+                <div id="clinic-tab" class="tab-pane">
+                    <h2>Acesso da Clínica</h2>
+                    <p class="form-desc">Acesso para gerenciamento da clínica</p>
+                    
+                    <div id="clinic-error" class="error-message"></div>
+                    
+                    <form id="clinic-form">
+                        <div class="input-group">
+                            <label for="clinic-user">Usuário</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-clinic-medical"></i>
+                                <input type="text" id="clinic-user" name="username" required placeholder="Digite seu usuário">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="clinic-pass">Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="clinic-pass" name="password" required placeholder="Digite sua senha">
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="remember-group">
+                            <label class="checkbox">
+                                <input type="checkbox" id="clinic-remember" name="remember">
+                                <span class="checkmark"></span>
+                                <span>Lembrar-me por 30 dias</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <span>Entrar</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="security-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Acesso restrito aos administradores da clínica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-container">
+            <div class="info-content">
+                <h2>Bem-vindo ao PsicoLife</h2>
+                <p>Sistema de gerenciamento para profissionais de saúde mental</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Desenvolvedores</h3>
+                            <p>Acesso total ao sistema para manutenção e desenvolvimento</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Psicólogos</h3>
+                            <p>Acesso aos dados dos pacientes, quiz e diários</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Clínica</h3>
+                            <p>Acesso aos dados estatísticos e gerenciamento</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clinic-info">
+                    <img src="../images/logo-clinica.png" alt="Logo da Clínica" onerror="this.src='https://via.placeholder.com/100'">
+                    <h3>Andreia Monteiro Espaço Saúde</h3>
+                    <p>R. Castro Fafe, 333 - Centro, Atibaia - SP</p>
+                </div>
+            </div>
+            
+            <div class="info-footer">
+                <p>&copy; 2025 PsicoLife. Todos os direitos reservados.</p>
+                <a href="../html/landing-page.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Voltar para o site
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="lockout-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> Conta Bloqueada</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Muitas tentativas de login malsucedidas.</p>
+                <p>Tente novamente em <span id="lockout-timer">5:00</span></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="close-modal-btn">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="../js/admin-login.js"></script>
+</body>
+</html>
