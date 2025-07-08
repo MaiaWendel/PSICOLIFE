@@ -1,0 +1,479 @@
+/* Importando fonte Poppins - mais moderna e legível */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset e fonte padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Botão de tema */
+.theme-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+#theme-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+#theme-toggle i {
+  font-size: 18px;
+  color: #555;
+}
+
+body.dark-theme #theme-toggle {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+body.dark-theme #theme-toggle:hover {
+  background-color: #333;
+}
+
+body.dark-theme #theme-toggle i {
+  color: #bbb;
+}
+
+/* Corpo da página */
+body {
+  background-image: url('../images/Signin-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Card de login */
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.logo {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo h1 {
+  font-size: 28px;
+  color: #272262;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.tagline {
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.form-container {
+  position: relative;
+  z-index: 1;
+}
+
+.form-container h2 {
+  font-size: 22px;
+  color: #272262;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Input e labels com flutuação */
+.label-float {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.label-float input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.label-float input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(39, 34, 98, 0.2);
+}
+
+.label-float label {
+  position: absolute;
+  top: 12px;
+  left: 40px;
+  color: #888;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 15px;
+  font-size: 12px;
+  color: #272262;
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+/* Ícones nos campos */
+.icon {
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  color: #888;
+  font-size: 16px;
+}
+
+/* Ícone para alternar visibilidade da senha */
+.toggle-password {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+}
+
+.toggle-password:hover {
+  color: #272262;
+}
+
+/* Lembrar-me e Esqueceu a senha */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+}
+
+.remember input {
+  margin-right: 5px;
+}
+
+.forgot {
+  color: #272262;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* Botão de entrar */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #272262, #4038a0);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4038a0, #272262);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(39, 34, 98, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Divisor de conteúdo */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 45%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 45%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider span {
+  background-color: #fff;
+  padding: 0 10px;
+  color: #888;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Texto adicional */
+.signup-text {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link-highlight {
+  color: #272262;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-highlight:hover {
+  color: #4038a0;
+  text-decoration: underline;
+}
+
+/* Mensagens de alerta */
+.alert {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: none;
+  border: 1px solid transparent;
+}
+
+.alert.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border-color: #ffcdd2;
+}
+
+.alert.success {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  border-color: #c8e6c9;
+}
+
+/* Texto de boas-vindas */
+.welcome-text {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  padding: 20px;
+  display: none;
+}
+
+.welcome-text h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.welcome-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-secondary i {
+  margin-right: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .welcome-text {
+    display: block;
+  }
+}
+
+/* Tema escuro */
+body.dark-theme {
+  background-color: #121212;
+}
+
+body.dark-theme .card {
+  background-color: rgba(30, 30, 30, 0.95);
+  color: #e0e0e0;
+}
+
+body.dark-theme .logo h1 {
+  color: #fff !important;
+}
+
+body.dark-theme .tagline {
+  color: #fff !important;
+}
+
+body.dark-theme .form-container h2 {
+  color: #fff;
+}
+
+body.dark-theme .label-float input {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-theme .label-float input:focus {
+  background-color: #404040;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.3);
+}
+
+body.dark-theme .label-float label {
+  color: #bbb;
+}
+
+body.dark-theme .label-float input:focus + label,
+body.dark-theme .label-float input:not(:placeholder-shown) + label {
+  color: #6c63ff;
+  background-color: #1e1e1e;
+}
+
+body.dark-theme .icon,
+body.dark-theme .toggle-password {
+  color: #bbb;
+}
+
+body.dark-theme .toggle-password:hover {
+  color: #6c63ff;
+}
+
+body.dark-theme .remember {
+  color: #bbb;
+}
+
+body.dark-theme .forgot {
+  color: #6c63ff;
+}
+
+body.dark-theme .signup-text {
+  color: #bbb;
+}
+
+body.dark-theme .link-highlight {
+  color: #6c63ff;
+}
+
+body.dark-theme .link-highlight:hover {
+  color: #8a7fff;
+}
+
+body.dark-theme .divider span {
+  background-color: #1e1e1e;
+  color: #bbb;
+}
+
+body.dark-theme .divider::before,
+body.dark-theme .divider::after {
+  background-color: #444;
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 90%;
+    flex-direction: column;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+}

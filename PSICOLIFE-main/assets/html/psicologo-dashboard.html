@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Psicólogo - PsicoLife</title>
+    <link rel="stylesheet" href="../css/psicologo-dashboard.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>PsicoLife</h1>
+                <p class="tagline">Dashboard Psicólogo</p>
+            </div>
+            <nav>
+                <a href="./dashboard.html"><i class="fas fa-home"></i> Início</a>
+                <a href="#" class="active"><i class="fas fa-users"></i> Pacientes</a>
+                <a href="./diario.html"><i class="fas fa-book"></i> Diário</a>
+                <a href="./quiz.html"><i class="fas fa-clipboard-check"></i> Quiz</a>
+                <a href="./guia-escape.html"><i class="fas fa-heart"></i> Guia de Escape</a>
+                <a href="./perfil.html"><i class="fas fa-user"></i> Perfil</a>
+            </nav>
+            <div class="header-controls">
+                <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                <div class="user-menu">
+                    <button id="user-button">
+                        <img src="../images/perfil.png" alt="Perfil">
+                        <span id="user-name">Psicólogo</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="./perfil.html"><i class="fas fa-user"></i> Perfil</a>
+                        <a href="#" onclick="Utils.logout()"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-tabs">
+            <button class="tab-btn active" data-tab="pacientes">
+                <i class="fas fa-users"></i>
+                <span>Meus Pacientes</span>
+            </button>
+            <button class="tab-btn" data-tab="evolucao">
+                <i class="fas fa-chart-line"></i>
+                <span>Evolução Detalhada</span>
+            </button>
+        </div>
+
+        <!-- Aba de Pacientes -->
+        <div id="pacientes" class="tab-content active">
+            <div class="section-header">
+                <h2>Meus Pacientes</h2>
+                <p>Acompanhe o progresso e evolução dos seus pacientes</p>
+            </div>
+
+            <div class="patients-grid" id="patients-grid">
+                <!-- Pacientes serão carregados aqui via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Aba de Evolução Detalhada -->
+        <div id="evolucao" class="tab-content">
+            <div class="evolution-header">
+                <button class="btn-back" id="back-to-patients">
+                    <i class="fas fa-arrow-left"></i> Voltar aos Pacientes
+                </button>
+                <div class="patient-info" id="patient-info">
+                    <!-- Informações do paciente selecionado -->
+                </div>
+            </div>
+
+            <div class="evolution-content">
+                <div class="evolution-sidebar">
+                    <div class="evolution-actions">
+                        <button class="btn-primary" id="new-evolution-btn">
+                            <i class="fas fa-plus"></i> Nova Avaliação
+                        </button>
+                    </div>
+                    
+                    <div class="evolution-timeline" id="evolution-timeline">
+                        <!-- Timeline de evoluções -->
+                    </div>
+                </div>
+
+                <div class="evolution-main">
+                    <div class="evolution-charts">
+                        <div class="chart-container">
+                            <h3>Evolução do Humor</h3>
+                            <canvas id="mood-chart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Níveis de Ansiedade e Depressão</h3>
+                            <canvas id="anxiety-depression-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="patient-activity">
+                        <div class="activity-section">
+                            <h3>Atividade Recente no Diário</h3>
+                            <div id="diary-entries"></div>
+                        </div>
+                        <div class="activity-section">
+                            <h3>Resultados de Quiz</h3>
+                            <div id="quiz-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Nova Evolução -->
+    <div id="evolution-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nova Avaliação de Evolução</h3>
+                <button id="close-evolution-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="evolution-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="humor-geral">Humor Geral (1-10)</label>
+                            <input type="range" id="humor-geral" min="1" max="10" value="5">
+                            <span class="range-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="ansiedade-nivel">Nível de Ansiedade (1-10)</label>
+                            <input type="range" id="ansiedade-nivel" min="1" max="10" value="5">
+                            <span class="range-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="depressao-nivel">Nível de Depressão (1-10)</label>
+                            <input type="range" id="depressao-nivel" min="1" max="10" value="5">
+                            <span class="range-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="sono-qualidade">Qualidade do Sono (1-10)</label>
+                            <input type="range" id="sono-qualidade" min="1" max="10" value="5">
+                            <span class="range-value">5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="observacoes">Observações da Sessão</label>
+                        <textarea id="observacoes" rows="4" placeholder="Observações sobre o comportamento, humor e progresso do paciente..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="objetivos-sessao">Objetivos da Sessão</label>
+                        <textarea id="objetivos-sessao" rows="3" placeholder="Objetivos trabalhados nesta sessão..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="progresso-observado">Progresso Observado</label>
+                        <textarea id="progresso-observado" rows="3" placeholder="Progressos e melhorias observadas..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="proximos-passos">Próximos Passos</label>
+                        <textarea id="proximos-passos" rows="3" placeholder="Planos e estratégias para as próximas sessões..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-evolution">Cancelar</button>
+                        <button type="submit" class="btn-primary">Salvar Avaliação</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/psicologo-dashboard.js"></script>
+</body>
+</html>
